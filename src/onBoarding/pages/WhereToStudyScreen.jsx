@@ -1,5 +1,5 @@
 import React from "react";
 
-export const WhereStudyScreen = () => {
+export const WhereToStudyScreen = () => {
   return <div>WhereStudyScreen</div>;
 };
