@@ -10,7 +10,7 @@ import {
 
 function StudyApp() {
   return (
-    <>
+    <div className="container-global">
       <Routes>
         <Route path="/" element={<WhereToStudyScreen />} />
         <Route path="/homeScreen" element={<HomeScreen />} />
@@ -18,7 +18,7 @@ function StudyApp() {
         <Route path="/searchScreen" element={<SearchScreen />} />
         <Route path="/selectScreen" element={<SelectScreen />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

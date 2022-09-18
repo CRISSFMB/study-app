@@ -1,5 +1,10 @@
-import React from "react";
+import { OnBoarding } from "../components/OnBoarding";
+import "../../helpers/helpers.css";
 
 export const WhereToStudyScreen = () => {
-  return <div>WhereStudyScreen</div>;
+  return (
+    <div className="flex-center">
+      <OnBoarding />;
+    </div>
+  );
 };

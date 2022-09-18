@@ -6,9 +6,7 @@ html {
 }
 
 body {
-  color: #ffffff;
   font-family: "Saira", sans-serif;
-  background: #1e1e1e;
 }
 
 *,
@@ -32,7 +30,7 @@ img {
   display: block;
 }
 
-.container {
+.container-global {
   width: 90%;
   max-width: 1300px;
   margin: 0 auto;
