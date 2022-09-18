@@ -1,0 +1,113 @@
+/*page*/
+
+.onBoarding {
+  display: flex;
+}
+
+/*content*/
+.onBoarding-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+}
+.onBoarding-content__title {
+  font-family: "Laout Beauty", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 63px;
+  text-align: center;
+}
+.onBoarding-content__description {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  text-align: center;
+  font-size: 31px;
+}
+.onBoarding__button {
+  height: 44px;
+  width: 200px;
+  border-radius: 100px;
+  padding: 10px 24px 10px 24px;
+  background-color: transparent;
+  display: block;
+  margin: 0 auto;
+}
+
+/*image*/
+
+.onBoarding__imgPerson {
+  display: none;
+}
+
+.onBoarding__imgCircleOrange {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+}
+
+.onBoarding__imgQuestionBubble {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+}
+.onBoarding__imgTriangleOrange {
+  position: absolute;
+  top: 208px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.onBoarding__imgQuadratRed {
+  position: absolute;
+  top: 519px;
+  right: 49px;
+}
+.onBoarding__imgQuadratBlue {
+  position: absolute;
+  top: 588px;
+  left: 39px;
+}
+
+/*borrar*/
+.onBoarding-content__testBorrar {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+/*desktop*/
+
+@media screen and (min-width: 1024px) {
+  .onBoarding-content__title {
+    font-size: 180px;
+    margin: 0;
+  }
+
+  .onBoarding-content__description {
+    font-size: 64px;
+  }
+  .onBoarding__imgPerson {
+    display: block;
+    width: 600px;
+    position: absolute;
+    right: 50px;
+    bottom: 0;
+  }
+
+  .onBoarding__button {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+  }
+
+  .onBoarding-content__testBorrar {
+    margin-top: 0;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

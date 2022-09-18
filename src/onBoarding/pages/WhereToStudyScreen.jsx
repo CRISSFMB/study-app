@@ -1,9 +1,8 @@
 import { OnBoarding } from "../components/OnBoarding";
-import "../../helpers/helpers.css";
-
+import "./page.css";
 export const WhereToStudyScreen = () => {
   return (
-    <div className="flex-center">
+    <div className="page">
       <OnBoarding />;
     </div>
   );
