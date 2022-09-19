@@ -1,55 +1,27 @@
-import personStudy from "../../assets/onboarding-assets/onBoarding-studyPerson.svg";
-import circleOrange from "../../assets/onboarding-assets/circle-orange.svg";
-import questionBubble from "../../assets/onboarding-assets/question-bubble.svg";
-import triangleOrange from "../../assets/onboarding-assets/triangle-orange.svg";
-import quadratRed from "../../assets/onboarding-assets/quadrat-red.svg";
-import quadratBlue from "../../assets/onboarding-assets/quadrat-blue.svg";
 import testcontrolsimagendePruebaBorrar from "../../assets/onboarding-assets/Frame 37.svg";
+import { OnBoardingSvg } from "./OnBoardingSvg";
 import "./OnBoarding.css";
 
-export const OnBoarding = () => {
+export const OnBoarding = (props) => {
   return (
     <div className="onBoarding">
       <div className="onBoarding-content">
-        <h2 className="onBoarding-content__title">¿No sabés</h2>
-        <p className="onBoarding-content__description">a dónde estudiar?</p>
+        <h2 className="onBoarding-content__title">{props.title}</h2>
+        <p className="onBoarding-content__description">{props.description}</p>
         <img
           className="onBoarding-content__testBorrar"
           src={testcontrolsimagendePruebaBorrar}
         />
-        <button className="onBoarding__button">Saltar</button>
+        <button className="onBoarding__button">{props.btnText}</button>
       </div>
-
-      <img
-        className="onBoarding__imgPerson"
-        src={personStudy}
-        alt="study-person"
-      />
-      <img
-        className="onBoarding__imgCircleOrange"
-        src={circleOrange}
-        alt="circleOrange"
-      />
-      <img
-        className="onBoarding__imgQuestionBubble"
-        src={questionBubble}
-        alt="questionBubble"
-      />
-      <img
-        className="onBoarding__imgTriangleOrange"
-        src={triangleOrange}
-        alt="triangleOrange"
-      />
-      <img
-        className="onBoarding__imgQuadratRed"
-        src={quadratRed}
-        alt="quadratRed"
-      />
-      <img
-        className="onBoarding__imgQuadratBlue"
-        src={quadratBlue}
-        alt="quadratBlue"
-      />
+      {props.OnBoardingSvgs.map((svg) => (
+        <OnBoardingSvg
+          key={svg.id}
+          className={svg.classSvg}
+          svgImage={svg.svgImage}
+          alt={svg.alt}
+        />
+      ))}
     </div>
   );
 };
