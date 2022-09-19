@@ -5,7 +5,7 @@ import questionBubble from "../../assets/onboarding-assets/question-bubble.svg";
 import triangleOrange from "../../assets/onboarding-assets/triangle-orange.svg";
 import quadratRed from "../../assets/onboarding-assets/quadrat-red.svg";
 import quadratBlue from "../../assets/onboarding-assets/quadrat-blue.svg";
-import "./page.css";
+import "./WhereToStudy.css";
 
 const OnBoardingSvgs = [
   {
@@ -48,7 +48,7 @@ const OnBoardingSvgs = [
 
 export const WhereToStudyScreen = () => {
   return (
-    <div className="page">
+    <div className="WhereToStudyScreen">
       <OnBoarding
         title="¿No sabés"
         description="a dónde estudiar?"

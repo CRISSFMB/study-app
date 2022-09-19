@@ -4,13 +4,13 @@
   display: flex;
 }
 
+.onBoarding.onBoarding--enterPage .onBoarding-content__title {
+  font-size: 6rem;
+}
+
 /*content*/
 .onBoarding-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: -50px;
+  margin: 0 auto;
 }
 .onBoarding-content__title {
   font-family: "Laout Beauty", sans-serif;
@@ -42,72 +42,114 @@
   display: none;
 }
 
-.onBoarding__imgCircleOrange {
+.onBoarding__EnterIlustration {
+  display: none;
+}
+
+.onBoarding__imgCircleOrange,
+.onBoarding__imgQuestionBubble,
+.onBoarding__imgTriangleOrange,
+.onBoarding__imgQuadratRed,
+.onBoarding__imgQuadratBlue {
   position: absolute;
+}
+
+.onBoarding__imgCircleOrange {
   top: 30px;
   right: 40px;
 }
 
 .onBoarding__imgQuestionBubble {
-  position: absolute;
-  top: 30px;
+  top: -47px;
   left: 40px;
 }
 .onBoarding__imgTriangleOrange {
-  position: absolute;
-  top: 208px;
+  top: 246px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .onBoarding__imgQuadratRed {
-  position: absolute;
-  top: 519px;
+  top: 414px;
   right: 49px;
 }
 .onBoarding__imgQuadratBlue {
-  position: absolute;
-  top: 588px;
+  top: 411px;
   left: 39px;
 }
 
 /*borrar*/
 .onBoarding-content__testBorrar {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin: 100px auto;
+  display: block;
 }
 
 /*desktop*/
 
 @media screen and (min-width: 1024px) {
+  .onBoarding.onBoarding--enterPage .onBoarding-content__title {
+    font-size: 20rem;
+  }
+  .onBoarding-content {
+    margin: initial;
+  }
   .onBoarding-content__title {
-    font-size: 180px;
+    font-size: 13rem;
     margin: 0;
+    position: relative;
+    z-index: 40;
   }
 
   .onBoarding-content__description {
     font-size: 64px;
+    margin: 0;
+    position: relative;
+    z-index: 40;
   }
   .onBoarding__imgPerson {
     display: block;
-    width: 600px;
+    width: 521px;
     position: absolute;
-    right: 50px;
-    bottom: 0;
+    right: -41px;
+    bottom: -218px;
+  }
+
+  .onBoarding__EnterIlustration {
+    display: block;
+    width: 50%;
+    max-width: 46rem;
+    position: absolute;
+    right: 130px;
+    bottom: -50px;
   }
 
   .onBoarding__button {
     position: absolute;
-    top: 60px;
-    right: 60px;
+    top: -133px;
+    right: 19px;
   }
 
   .onBoarding-content__testBorrar {
     margin-top: 0;
     margin-bottom: 0;
     position: absolute;
-    bottom: 40px;
+    bottom: -138px;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .onBoarding__imgPerson {
+    right: 83px;
+  }
+
+  .onBoarding__EnterIlustration {
+    display: block;
+    width: 50%;
+    max-width: 46rem;
+    position: absolute;
+    right: 130px;
+    bottom: -50px;
   }
 }

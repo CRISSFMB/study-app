@@ -10,15 +10,13 @@ import {
 
 function StudyApp() {
   return (
-    <div className="container-global">
-      <Routes>
-        <Route path="/" element={<WhereToStudyScreen />} />
-        <Route path="/homeScreen" element={<HomeScreen />} />
-        <Route path="/enterScreen" element={<EnterScreen />} />
-        <Route path="/searchScreen" element={<SearchScreen />} />
-        <Route path="/selectScreen" element={<SelectScreen />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<WhereToStudyScreen />} />
+      <Route path="/homeScreen" element={<HomeScreen />} />
+      <Route path="/enterScreen" element={<EnterScreen />} />
+      <Route path="/searchScreen" element={<SearchScreen />} />
+      <Route path="/selectScreen" element={<SelectScreen />} />
+    </Routes>
   );
 }
 
