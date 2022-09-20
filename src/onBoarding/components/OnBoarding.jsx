@@ -1,6 +1,7 @@
 import testcontrolsimagendePruebaBorrar from "../../assets/onboarding-assets/Frame 37.svg";
 import { OnBoardingSvg } from "./OnBoardingSvg";
 import "./OnBoarding.css";
+import { Link } from "react-router-dom";
 
 export const OnBoarding = (props) => {
   return (
@@ -13,7 +14,9 @@ export const OnBoarding = (props) => {
             className="onBoarding-content__testBorrar"
             src={testcontrolsimagendePruebaBorrar}
           />
-          <button className="onBoarding__button">{props.btnText}</button>
+          <Link to={props.btnPath}>
+            <button className="onBoarding__button">{props.btnText}</button>
+          </Link>
         </div>
         {props.OnBoardingSvgs.map((svg) => (
           <OnBoardingSvg

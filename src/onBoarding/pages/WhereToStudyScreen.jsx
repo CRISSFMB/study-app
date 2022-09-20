@@ -54,6 +54,7 @@ export const WhereToStudyScreen = () => {
         description="a dónde estudiar?"
         btnText="Saltar"
         OnBoardingSvgs={OnBoardingSvgs}
+        btnPath="/enterScreen"
       />
     </div>
   );

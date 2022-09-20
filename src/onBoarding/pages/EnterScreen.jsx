@@ -54,6 +54,7 @@ export const EnterScreen = () => {
         btnText="Saltar"
         OnBoardingSvgs={OnBoardingSvgs}
         TypePageClass="onBoarding--enterPage"
+        btnPath="/searchScreen"
       />
     </div>
   );

@@ -51,6 +51,7 @@
   background-color: transparent;
   display: block;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 /*image*/
@@ -154,7 +155,7 @@
   /*where to study page*/
   .onBoarding__imgPerson {
     display: block;
-    width: 521px;
+    width: 485px;
     position: absolute;
     right: -41px;
     bottom: -218px;

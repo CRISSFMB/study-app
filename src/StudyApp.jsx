@@ -1,4 +1,3 @@
-// import { render } from "react-dom";
 import { Routes, Route } from "react-router-dom";
 import { HomeScreen } from "./home/pages/HomeScreen";
 import {

@@ -54,6 +54,7 @@ export const SelectScreen = () => {
         btnText="Empecemos"
         OnBoardingSvgs={OnBoardingSvgs}
         TypePageClass="onBoarding--selectPage"
+        btnPath="/homeScreen"
       />
     </div>
   );
