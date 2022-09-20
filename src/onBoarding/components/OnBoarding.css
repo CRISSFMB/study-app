@@ -4,8 +4,25 @@
   display: flex;
 }
 
+/*page enterpage styles */
+
 .onBoarding.onBoarding--enterPage .onBoarding-content__title {
   font-size: 6rem;
+}
+.onBoarding.onBoarding--enterPage .onBoarding__button {
+  color: white;
+  border: 1px solid white;
+}
+
+/*page search*/
+
+.onBoarding.onBoarding--SearchScreen .onBoarding__button {
+  color: white;
+  border: 1px solid white;
+}
+
+.onBoarding__SearchScreen {
+  display: none;
 }
 
 /*content*/
@@ -43,6 +60,9 @@
 }
 
 .onBoarding__EnterIlustration {
+  display: none;
+}
+.onBoarding__ElegiIlustration {
   display: none;
 }
 
@@ -87,9 +107,33 @@
 /*desktop*/
 
 @media screen and (min-width: 1024px) {
+  /*enter page */
   .onBoarding.onBoarding--enterPage .onBoarding-content__title {
     font-size: 20rem;
   }
+
+  /*search page */
+
+  .onBoarding.onBoarding--SearchScreen .onBoarding__button {
+    color: white;
+    border: 1px solid white;
+  }
+
+  /*elegi page */
+
+  .onBoarding__ElegiIlustration {
+    display: block;
+  }
+
+  .onBoarding.onBoarding--selectPage .onBoarding-content__description {
+    font-size: 4rem;
+  }
+  .onBoarding.onBoarding--selectPage .onBoarding__button {
+    color: white;
+    border: 1px solid white;
+  }
+
+  /*elegi page end*/
   .onBoarding-content {
     margin: initial;
   }
@@ -106,6 +150,8 @@
     position: relative;
     z-index: 40;
   }
+
+  /*where to study page*/
   .onBoarding__imgPerson {
     display: block;
     width: 521px;
@@ -114,6 +160,10 @@
     bottom: -218px;
   }
 
+  /*where to study page end*/
+
+  /*enter page */
+
   .onBoarding__EnterIlustration {
     display: block;
     width: 50%;
@@ -121,6 +171,21 @@
     position: absolute;
     right: 130px;
     bottom: -50px;
+  }
+  /*enter page end */
+
+  /*search page */
+  .onBoarding__SearchScreen {
+    display: block;
+    width: 50%;
+    max-width: 46rem;
+    position: absolute;
+    right: 458px;
+    bottom: -94px;
+  }
+
+  .onBoarding.onBoarding--SearchScreen {
+    justify-content: end;
   }
 
   .onBoarding__button {
@@ -140,9 +205,12 @@
 }
 
 @media screen and (min-width: 1440px) {
+  /*wheretostudy page*/
   .onBoarding__imgPerson {
     right: 83px;
   }
+
+  /*enter page*/
 
   .onBoarding__EnterIlustration {
     display: block;
@@ -151,5 +219,16 @@
     position: absolute;
     right: 130px;
     bottom: -50px;
+  }
+
+  /*search page */
+  .onBoarding__SearchScreen {
+    right: 680px;
+    bottom: -76px;
+  }
+
+  .onBoarding.onBoarding--SearchScreen {
+    justify-content: center;
+    margin-left: 219px;
   }
 }
