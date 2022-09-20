@@ -1,3 +1,61 @@
+import { OnBoarding } from "../components/OnBoarding";
+import enterIlustration from "../../assets/onboarding-assets/enter-ilustration.svg";
+import circleOrange from "../../assets/onboarding-assets/circle-orange.svg";
+import questionBubble from "../../assets/onboarding-assets/question-bubble.svg";
+import triangleOrange from "../../assets/onboarding-assets/triangle-orange.svg";
+import quadratRed from "../../assets/onboarding-assets/quadrat-red.svg";
+import quadratBlue from "../../assets/onboarding-assets/quadrat-blue.svg";
+import "./EnterScreen.css";
+const OnBoardingSvgs = [
+  {
+    id: 1,
+    classSvg: "onBoarding__imgCircleOrange",
+    svgImage: circleOrange,
+    alt: "circleOrange",
+  },
+  {
+    id: 2,
+    classSvg: "onBoarding__imgQuestionBubble",
+    svgImage: questionBubble,
+    alt: "questionBubble",
+  },
+  {
+    id: 3,
+    classSvg: "onBoarding__imgTriangleOrange",
+    svgImage: triangleOrange,
+    alt: "triangleOrange",
+  },
+  {
+    id: 4,
+    classSvg: "onBoarding__imgQuadratRed",
+    svgImage: quadratRed,
+    alt: "quadratRed",
+  },
+  {
+    id: 5,
+    classSvg: "onBoarding__imgQuadratBlue",
+    svgImage: quadratBlue,
+    alt: "quadratBlue",
+  },
+  {
+    id: 6,
+    classSvg: "onBoarding__EnterIlustration",
+    svgImage: enterIlustration,
+    alt: "enterIlustration",
+  },
+];
+
 export const EnterScreen = () => {
-  return <div>EnterScreen</div>;
+  return (
+    <div className="EnterScreen">
+      <OnBoarding
+        title="Entra"
+        description="a la web"
+        btnText="Saltar"
+        OnBoardingSvgs={OnBoardingSvgs}
+        TypePageClass="onBoarding--enterPage"
+        btnPath="/searchScreen"
+      />
+    </div>
+  );
 };
