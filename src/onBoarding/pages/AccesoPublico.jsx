@@ -1,8 +1,9 @@
 import React from 'react'
+import './AccesoPublico.css'
 
 const AccesoPublico = () => {
   return (
-    <div>AccesoPublico</div>
+    <div className='rojo'>AccesoPublico</div>
   )
 }
 
