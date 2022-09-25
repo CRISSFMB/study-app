@@ -1,0 +1,30 @@
+.titulo{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 39px;
+    color: #8C4A3B;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+.card{
+    margin-left: 50px;
+    border: 1px solid  #011826;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.cardContenido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardNumero{
+    width: 20px;
+    padding-left: 5px;
+    margin-right: 5px;
+    background-color: #8C4A3B;
+    border-radius: 50%;
+    color: white;
+}
