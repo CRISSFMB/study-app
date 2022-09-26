@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-nav{
+/* nav{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,4 +21,71 @@ nav{
     color: white;
     background-color: #011826;
 }
+ */
 
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.niveles{
+    text-decoration: none;
+    color: white;
+    padding: 10px 30px;
+    margin-left: 20px;
+    border: 1px solid #011826;
+    border-radius: 20px;
+    transition: all 0.5s ease-in;
+    background-color: #011826 ;
+}
+
+.tituloMenu{
+    background-color: #011826;
+    color: whitesmoke;
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+}
+
+
+@media screen and (min-width: 600px) {
+
+    .tituloMenu{
+        display: none;
+    }
+
+    nav{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    nav ul{
+        flex-direction: row;
+    }
+    
+    .niveles{
+        text-decoration: none;
+        color: black;
+        padding: 10px 30px;
+        margin-left: 20px;
+        border: 1px solid #011826;
+        border-radius: 20px;
+        transition: all 0.5s ease-in;
+        background-color: white;
+    }
+    
+    .niveles:hover{
+        color: white;
+        background-color: #011826;
+    }
+}
