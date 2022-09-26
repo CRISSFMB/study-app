@@ -1,23 +1,46 @@
+
 .titulo{
     margin-top: 40px;
     text-align: center;
-    font-size: 39px;
+    font-size: 25px;
     color: #8C4A3B;
     font-family: 'Roboto', sans-serif;
-    font-weight: 900;
+    font-weight: 400;
+} 
+
+.bold{
+    font-weight: bold;
 }
 
 .card{
-    margin-left: 50px;
+    margin: 20px auto;
     border: 1px solid  #011826;
     border-radius: 5px;
-    width: 250px;
+    width: 290px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .cardContenido{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.verUniversidad{
+    position: absolute;  
+    top: 50%;
+    left: 58%;
+    border: none;
+    background-color: #8C4A3B;
+    color: white;
+    font-weight: bold;
+    font-size: 11px;
+    border-radius: 30px;
+    height: 30px;
+    width: 110px;
+    cursor: pointer;
 }
 
 .cardNumero{
@@ -27,4 +50,94 @@
     background-color: #8C4A3B;
     border-radius: 50%;
     color: white;
+}
+
+/* //Iconos de carga */
+
+.cargaContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    
+}
+
+.cargaAzul{
+    margin: 1px;
+    background-color: #011826;
+    width: 24px;
+    height: 8.47px;
+}
+
+.cargaTransparente{
+    margin: 1px;
+    width: 24px;
+    height: 8.47px;
+    background-color: #A8BBBF;
+}
+
+.cargador{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+}
+
+.cargaContainerText{
+    width: 60px;
+    height: 50px;
+    margin: 5px;
+}
+
+.cargaTexto{
+    margin: 0;
+    font-size: 10px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.buttonVerMas{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.verMas{
+    text-decoration: none;
+    color: black;
+    padding: 10px 50px;
+    border: 1px solid #011826;
+    border-radius: 20px;
+    transition: all 0.5s ease-in;
+    background-color: white;
+}
+
+.verMas:hover{
+    color: white;
+    background-color: #011826;
+}
+
+
+@media screen and (min-width: 600px) {
+
+   .titulo{
+        font-size: 39px;
+   }
+
+   .grid{
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(3,300px); 
+        grid-template-rows:(3,330px); 
+        gap: 20px 20px;
+
+    }
+
+  
+    
+
+    
 }
