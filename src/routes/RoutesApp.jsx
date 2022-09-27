@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { HomeRoutes } from "../home/routes/HomeRoutes";
 import { EnterScreen } from "../onBoarding/pages/EnterScreen";
 import { SearchScreen } from "../onBoarding/pages/SearchScreen";
