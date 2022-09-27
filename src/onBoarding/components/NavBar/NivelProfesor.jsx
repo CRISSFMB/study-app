@@ -2,10 +2,9 @@ import React from 'react'
 
 const NivelProfesor = () => {
   return (
-    <div>Soy componenete nivel Profesor
-      PRUEBAAAAAAAAA
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio laboriosam a, velit optio ipsa sint accusamus consequuntur ducimus ullam reprehenderit? Rem nam ad, atque labore id recusandae quam libero neque!
-    </div>
+    <>
+      <h1 className='titulo'>Las universidades de tu futura carrera según <br /> <span className='bold'>el nivel de profesores</span> </h1>
+    </>
   )
 }
 

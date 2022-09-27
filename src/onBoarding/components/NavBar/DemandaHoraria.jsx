@@ -2,7 +2,9 @@ import React from 'react'
 
 const DemandaHoraria = () => {
   return (
-    <div>SOY COMPONENTE DEMANDA HORARIA</div>
+    <>
+      <h1 className='titulo'>Las universidades de tu futura carrera según <br /> <span className='bold'>la demanda horaria</span> </h1>
+    </>
   )
 }
 
