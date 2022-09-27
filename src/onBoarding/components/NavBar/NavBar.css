@@ -1,28 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-/* nav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-}
-
-.niveles{
-    text-decoration: none;
-    color: black;
-    padding: 10px 30px;
-    margin-left: 20px;
-    border: 1px solid #011826;
-    border-radius: 20px;
-    transition: all 0.5s ease-in;
-}
-
-.niveles:hover{
-    color: white;
-    background-color: #011826;
-}
- */
-
 nav{
     display: flex;
     align-items: center;
