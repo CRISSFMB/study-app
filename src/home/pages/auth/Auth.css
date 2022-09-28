@@ -31,7 +31,7 @@
 
 }
 
-h2 {
+.title-h2 {
     left: 27.84%;
     right: 1.57%;
     top: 30.48%;
@@ -53,7 +53,7 @@ h2 {
 
 }
 
-h3 {
+.title-h3 {
     /* Roboto 26 bold */
 
     font-family: 'Roboto';
@@ -66,7 +66,7 @@ h3 {
     color: #FFFFFF;
 }
 
-h6 {
+.title-h6 {
     /* Roboto 14 medium */
 
     font-family: 'Roboto';

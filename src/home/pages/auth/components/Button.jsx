@@ -2,15 +2,16 @@ import React from 'react'
 import "./Button.css";
 
 
-export default function Button({background, color, children}) {
+export default function Button({background,onclick, color, children}) {
     const styleB ={
         backgroundColor: background,
-        color: color,
-                
+        color: color,   
     }
+
   return (       
                 
-    <button className='button-auth' style={styleB}  type="submit">{children}</button>
+    <button onClick={onclick} className='button-auth' style={styleB}  
+    type="submit">{children}</button>
 
   )
 }

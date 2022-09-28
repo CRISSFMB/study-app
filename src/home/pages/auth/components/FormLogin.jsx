@@ -1,10 +1,16 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import ButtonSocial from './ButtonSocial';
 import Input from './Input';
 import Salto from './Salto';
 
 export default function FormLogin() {
+    const navigate = useNavigate()
+    const buttonRedirect = ()=> {
+       return  navigate("/register")
+    }
+
   return (
     <>
     <form className='form'>
@@ -59,7 +65,7 @@ export default function FormLogin() {
                     <Button background={"#011826"} color={"#FFFFFF"}>
                         Iniciar sesión
                     </ Button>
-                    <Button background={"#FFFFFF"} color={"#011826"}>
+                    <Button onclick={buttonRedirect} background={"#FFFFFF"} color={"#011826"}>
                         Registrarme
                     </ Button>
 
