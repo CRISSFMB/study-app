@@ -1,0 +1,158 @@
+footer {
+
+  width: 100%;
+  bottom: 0;
+  background: #011826;
+  color: #ffffff;
+  position: absolute;
+}
+.footer a{
+    color: #ffffff;
+}
+.footer__div {
+  display: grid;
+  margin: 0 auto;
+}
+.donde_estudio{
+left: 27.84%;
+right: 1.57%;
+top: 30.48%;
+bottom: 8.57%;
+font-family: 'Gotham';
+font-style: normal;
+font-weight: 350;
+font-size: 20px;
+line-height: 20px;
+/* or 100% */
+
+display: flex;
+align-items: center;
+letter-spacing: 0.1px;
+
+/* blanco */
+
+color: #FFFFFF;
+}
+.donde_estudio_div{
+  display: grid;
+  margin: 0 auto;
+  border-bottom: 0.5px solid #FFFFFF;
+  width: 90%;
+  justify-items: center;
+  padding: 20px;
+}
+.donde_estudio_h3{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.copyrigth{
+  display: grid;
+  justify-items: center;
+  color: #ffffff;
+  border-top: 0.5px solid #FFFFFF;
+  width: 70%;
+  margin: 0 auto;
+}
+.links{
+  display: grid;
+}
+.links a{
+  color: #ffffff;
+  padding: .5rem;
+}
+.link{
+  display: flex;
+  padding: .5rem;
+  align-items: center;
+  
+}
+.info{
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  color: #ffffff;
+  padding: 1rem;
+}
+.copy_div{
+  display: grid;
+  justify-items: center;
+  color: #ffffff;
+  margin-top: 1rem;
+}
+.copy_div a{
+  padding: .5rem;
+}
+@media (min-width: 992px) {
+  .footer{
+    display: grid;
+    height: 459px;
+    font-size: 14px;
+    position: absolute;
+
+  }
+  .footer__div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+  }
+  .info{
+    display: grid;
+    grid-template-columns:  repeat(3, 1fr);
+    align-items: start;
+    border-left: 1px solid #FFFFFF;
+    padding: 0;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+  }
+  .donde_estudio_div{
+    display: grid;
+    border: none;
+    margin: 0 auto;
+    justify-items: start;
+  }
+  .logo{
+    margin-bottom: 22px;
+    height: 60px;
+  }
+  .text{
+    line-height: 20px;
+    letter-spacing: 0.1px;
+  }
+  .copyrigth {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 20px;
+    width: 95%;
+    font-size: 16px;
+    height: 0;
+  }
+  .copy_div{
+    display: flex;    
+    font-size: 16px;
+  }
+  .links h2{
+    font-size: 24px;
+  
+  }
+  .links a{
+    font-size: 16px;
+  }
+  .links{
+    justify-items: start;
+    text-align: inherit;
+  }
+  .donde_estudio_h3{
+    font-size: 24px;
+  }
+}
+@media (min-width: 968px) {
+  .logo{
+    height: 60px;
+  }
+}
