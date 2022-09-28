@@ -138,7 +138,6 @@ color: #FFFFFF;
   }
   .links h2{
     font-size: 24px;
-  
   }
   .links a{
     font-size: 16px;
@@ -149,10 +148,5 @@ color: #FFFFFF;
   }
   .donde_estudio_h3{
     font-size: 24px;
-  }
-}
-@media (min-width: 968px) {
-  .logo{
-    height: 60px;
   }
 }
