@@ -17,8 +17,25 @@
     cursor:pointer
 }
 
+.button-hover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    gap: 8px;
+    width: 187px;
+    height: 48px;
+    border: 1px solid #011826;
+    border-radius: 31px;
+    flex: none;
+    background-color: red;
+    order: 0;
+    flex-grow: 0;
+    cursor:pointer
+}
+
 .button-auth:hover {
     opacity: 0.6 !important;
-    
 }
 

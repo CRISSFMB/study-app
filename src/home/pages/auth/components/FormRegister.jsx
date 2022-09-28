@@ -1,9 +1,13 @@
 import React from 'react'
 import Button from './Button'
 import Input from './Input'
-import check from "../../../../assets/onboarding-assets/Check.svg"
+import { useNavigate } from 'react-router-dom'
 export default function FormRegister() {
 
+    const navigate = useNavigate()
+    const buttonRedirect = ()=> {
+       return  navigate("/login")
+    }
 
     return (
         <>
@@ -71,7 +75,7 @@ export default function FormRegister() {
                 </label>
 
                 <div className='container-buttons'>
-                    <Button background={"#011826"} color={"#FFFFFF"}>
+                    <Button onclick={buttonRedirect} background={"#011826"} color={"#FFFFFF"}>
                         Iniciar sesión
                     </ Button>
                     <Button background={"#FFFFFF"} color={"#011826"}>
