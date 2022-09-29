@@ -1,0 +1,29 @@
+.separador {
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: -4px;
+}
+
+.line {
+    width: 200px;
+    height: 2px;
+    background-color: #8C4A3B;
+    margin-top: 17px
+}
+
+.letra-o {
+    width: 10px;
+    height: 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #8C4A3B;
+    margin-left: 35px;
+    margin-right: 35px;
+}

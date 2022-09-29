@@ -1,0 +1,220 @@
+.container {
+    position: relative;
+    width: 90vw;
+    height: 768px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background: #FFFFFF;
+    margin-top: 100px;
+}
+
+.container-info {
+    width: 50%;
+    height: 768px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background: #011826;
+}
+
+.container-form {
+    width: 50%;
+    height: 768px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.title-h2 {
+    left: 27.84%;
+    right: 1.57%;
+    top: 30.48%;
+    bottom: 8.57%;
+    font-family: 'Gotham';
+    font-style: normal;
+    font-weight: 350;
+    font-size: 20px;
+    line-height: 20px;
+    /* or 100% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.1px;
+
+    /* blanco */
+
+    color: #FFFFFF;
+
+}
+
+.title-h3 {
+    /* Roboto 26 bold */
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 44px;
+    margin-top: 12px;
+    /* margin-left: 160px; */
+    color: #FFFFFF;
+}
+
+.title-h6 {
+    /* Roboto 14 medium */
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+
+    letter-spacing: 0.1px;
+
+    /* blanco */
+
+    color: #FFFFFF;
+}
+
+.container-info2 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+}
+
+.whereStudy {
+    display: flex;
+    margin-left: -60px;
+}
+
+.text {
+    height: 30px;
+    margin-left: -50px;
+    width: 90%;
+}
+
+.whereStudy-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.svg-line {
+    margin-top: -14px;
+    margin-left: -20px
+}
+
+.name-label {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    margin-bottom: -15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.1px;
+
+    /* azul+ */
+
+    color: #011826;
+}
+
+.olvidasteContraseña {
+    margin-left: 320px;
+    margin-top: 4px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #011826;
+}
+
+.check-recordarme {
+    width: 24px;
+    height: 24px;
+
+    background: #FFFFFF;
+    border: 1px solid #5D9EA6;
+    border-radius: 5px;
+}
+
+.container-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: -380px;
+    margin-top: -10px;
+}
+
+.recordarme {
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #011826;
+}
+
+.container-buttons {
+    display: flex;
+    width: 45%;
+    margin-top: 75px;
+    justify-content: space-around;
+    align-items: space-around;
+}
+
+.red-social {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    justify-content: space-around;
+}
+
+.sesion-red-social {
+    width: 173px;
+    height: 20px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #5D9EA6;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor-input-check {
+    display: flex;
+    width: 540px;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
