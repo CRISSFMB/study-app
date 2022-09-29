@@ -1,0 +1,127 @@
+.opina{
+    display: grid;
+}
+.logo{
+    width: 100%;   
+}
+.opina__div{
+    position: relative;
+    
+}
+.opina__img{
+    width: 100%;
+    
+}
+.opina__button{
+    position: absolute;
+    top: 3%;
+    left: 1%;
+    
+    background: none;
+    border: 0;
+    color: #F2F2F2;
+    font-size: 1.5rem;
+    
+}
+.form{
+    display: grid;
+    margin : 0 auto;
+    width: 95%;
+    margin-top: 3rem;
+}
+.search{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    font-size: 16px;
+    margin: 0 auto;
+    border-radius: 66px;
+    padding: 1rem 2rem ;
+    gap: 1rem;
+    align-items: center;
+}
+.gris{
+    background-color: #F2F2F2;
+    border-radius: 66px;
+}
+.search__div{
+    position: relative;
+    width: 100%;
+}
+.search__icon{
+    color: #191919;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search__input{
+    color: #191919;
+    padding: 15px 15px 15px 35px;
+    width: 100%;
+    color: #5D9EA6;
+    border: none;
+    opacity: 64%;
+    border-radius: 28px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
+.buttons{
+    display: grid;
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.button__send{
+    
+    background: #011826;
+    border-radius: 66px;
+    border: none;
+    color: #F2F2F2;
+    padding: 1rem;
+    transition: .5s  ease-in-out;
+}
+.button__send:hover{
+    border:1px solid #011826;
+    background: #ffffff;
+    color: #011826;
+}
+.button__del{
+    
+    background: #ffffff;
+    border-radius: 66px;
+    border: 1px solid #011826;
+    padding: 1rem;
+    color: #011826;
+    transition: .5s  ease-in-out;
+}
+
+.button__del:hover{
+    border: 1px solid #ffffff;
+    
+    background: #011826;
+    color: #ffffff;
+}
+@media (min-width: 768px) {
+    .form{
+        width: 70%;
+    }
+    .search{
+        padding: 1rem 5rem ;
+    }
+    .opina__button {
+        font-size: 4rem;
+    }
+    .buttons{
+        display: grid;
+        width: 50%;
+    }
+}
+

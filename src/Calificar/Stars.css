@@ -1,0 +1,16 @@
+input[type="radio"] {
+    display: none;
+}
+.stars{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+.star{
+    width: 40px;
+    cursor: pointer;
+}
+@media (min-width: 768px) {
+    .star{
+        width: 50px;
+    }
+}
