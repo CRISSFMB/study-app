@@ -10,7 +10,7 @@ export default function Button({background,onclick, color, children}) {
 
   return (       
                 
-    <button onClick={onclick} className='button-auth' style={styleB}  
+    <button onClick={onclick} className='auth__button' style={styleB}  
     type="submit">{children}</button>
 
   )

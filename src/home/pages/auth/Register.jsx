@@ -4,7 +4,7 @@ import FormRegister from './components/FormRegister';
 
 export default function Register() {
     return (
-        <div className='container'>
+        <div className='auth__container'>
             <ContainerAuth name="Registrate">
                <FormRegister />
             </ ContainerAuth >

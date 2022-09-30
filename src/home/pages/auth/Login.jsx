@@ -4,8 +4,7 @@ import FormLogin from './components/FormLogin';
 
 export default function Login() {
     return (
-        <div className='container'>
-
+        <div className='auth__container'>
             <ContainerAuth name={"Inicia sesión"} >
                 <FormLogin />
             </ ContainerAuth >

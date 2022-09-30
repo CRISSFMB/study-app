@@ -3,11 +3,11 @@ import "./Salto.css";
 
 export default function Salto() {
     return (
-        <div className='separador'>
-            <div className='line'>
+        <div className='auth__container__formLogin-separador'>
+            <div className='auth__container__formLogin-line'>
             </div>
-            <p className='letra-o'>O</p>
-            <div className='line'>
+            <p className='auth__container__formLogin-condicional'>O</p>
+            <div className='auth__container__formLogin-line'>
             </div>
         </div>
     )
