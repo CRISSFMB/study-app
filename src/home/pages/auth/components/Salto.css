@@ -1,18 +1,20 @@
-.separador {
+.auth__container__formLogin-separador {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
     margin-top: 12px;
     margin-bottom: -4px;
 }
 
-.line {
-    width: 200px;
+.auth__container__formLogin-line {
+    width: 100%;
     height: 2px;
     background-color: #8C4A3B;
-    margin-top: 17px
-}
+    }
 
-.letra-o {
-    width: 10px;
+.auth__container__formLogin-condicional {
+    width: 30%;
     height: 8px;
     font-family: 'Roboto';
     font-style: normal;
@@ -21,9 +23,8 @@
     line-height: 20px;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     letter-spacing: 0.1px;
     color: #8C4A3B;
-    margin-left: 35px;
-    margin-right: 35px;
 }
