@@ -1,0 +1,142 @@
+.agrega__logo{
+    position: relative;
+}
+.agrega__button{
+    position: absolute;
+    background: none;
+    border: 0;
+    color: #F2F2F2;
+    font-size: 5rem;
+    transition: .5s  ease-in-out;
+    padding: 1rem 2rem;
+}
+
+.agrega__button:hover{
+    color: #011826;
+}
+.agrega__img{
+    width: 100%;
+}
+.form__div{
+    margin: 0 2rem;
+    font-size: 16px;
+}
+.agrega__form{
+    display: grid;
+    margin: 0 auto;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.input__form{
+    background-color: #F2F2F2;
+    border: none;
+    border-radius: 66px;
+    width: 100%;
+    padding: 1rem 3rem;
+    color: #5D9EA6;
+    font-weight: 800;
+    
+    line-height: 20px;
+    font-size: 16px;
+    
+}
+.input__form::placeholder{
+    color: #5D9EA6;
+
+}
+.input__div{
+    display: grid;
+    grid-template-columns: 96% 4%;
+    gap: 2rem;
+    align-items: center;
+}
+.form__img{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.5rem;
+    margin: 1rem 2rem;
+    font-size: 16px;
+
+}
+.checked{
+    font-size: 16px;
+
+}
+.btn__carga{
+    display: grid;
+    justify-items: center;
+
+}
+
+.agrega__buttons{
+    margin: 3rem 0;
+    padding:1rem ;
+    display: grid;
+    gap: 1rem;
+    font-size: 16px;
+    
+
+}
+.btn__img{
+    width: 176px;
+    height: 112px;
+    border: none;
+    border-radius: 16px;
+    padding: 4rem;
+}
+.btn__add{
+    background: #011826;
+    border-radius: 66px;
+    border: none;
+    color: #F2F2F2;
+    padding: 1rem;
+    transition: .5s  ease-in-out;
+    font-weight: bold;
+    border:1px solid #011826;
+}
+.btn__add:hover{
+    padding: 1rem;
+    border:1px solid #011826;
+    background: #ffffff;
+    color: #011826;
+}
+.btn__del{
+    background: #ffffff;
+    border-radius: 66px;
+    border: 1px solid #011826;
+    padding: 1rem;
+    color: #011826;
+    transition: .5s  ease-in-out;
+    font-weight: bold;
+}
+.btn__del:hover{
+    padding: 1rem;
+    border: 1px solid #ffffff;
+    background: #011826;
+    color: #ffffff;
+}
+@media (min-width: 768px) {
+    .agrega__form{
+        width: 70%;
+    }
+    .form__img{
+
+        margin: 0 auto;
+
+    }
+    .agrega__buttons{
+        margin: 3rem auto;
+        width: 80%;
+        
+    }
+    .btn__add{
+
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .btn__del{
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
