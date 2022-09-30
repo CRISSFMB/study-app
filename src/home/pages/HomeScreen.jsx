@@ -12,7 +12,7 @@ export const HomeScreen = () => {
       <HeroHome />
       <NavBar />
       {/* <CalifUniversidades /> */}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
