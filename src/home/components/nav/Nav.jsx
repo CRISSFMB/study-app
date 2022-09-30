@@ -14,7 +14,7 @@ const Nav = () => {
             <button className="nav-btn">carreras</button>
             <button className="nav-btn">univercidades</button>
           </div>
-          <div>
+          <div className="nav-wrapper-login">
             <button className="nav-btn">register</button>
             <button className="nav-btn">iniciar seccion</button>
           </div>
