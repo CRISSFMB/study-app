@@ -1,0 +1,12 @@
+.container_contactoForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  .container_contactoForm {
+    flex-direction: row;
+  }
+}
