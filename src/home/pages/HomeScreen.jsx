@@ -1,7 +1,7 @@
 import CalifUniversidades from "../../Calificar/CalifUniversidades";
-import Stars from "../../Calificar/Stars.jsx";
-import Footer from "../../Footer/Footer";
+
 import NavBar from "../../onBoarding/components/NavBar/NavBar";
+import Carousel from "../components/Carousel/Carousel";
 import HeroHome from "../components/heroHome/HeroHome";
 import Nav from "../components/nav/Nav";
 
@@ -11,6 +11,7 @@ export const HomeScreen = () => {
       <Nav />
       <HeroHome />
       <NavBar />
+      <Carousel />
       {/* <CalifUniversidades /> */}
       {/* <Footer /> */}
     </div>
