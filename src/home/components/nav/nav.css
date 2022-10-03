@@ -68,7 +68,7 @@
 
 @media screen and (min-width: 1024px) {
   .nav-wrapper {
-    width: 80%;
+    width: 69%;
     display: flex;
     justify-content: space-between;
   }
