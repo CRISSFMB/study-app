@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+
   align-items: center;
   width: 100%;
 }
@@ -23,25 +24,29 @@
   display: flex;
   flex-direction: column;
 }
-.contenedor_textArea {
-  width: 100%;
-}
+
 .contacto_textArea {
   background-color: #d9d9d9;
-  border-radius: 66px;
-  margin-top: 4rem;
-  max-height: 248px;
-
-  resize: none;
-  border: none;
-  text-align: center;
-
-  margin-top: 30px;
-}
-.contenedor_form_btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  border-radius: 66px;
+  margin-top: 30px;
+}
+.contactoTextArea > textarea {
+  background-color: #d9d9d9;
+  resize: none;
+  border: none;
+  display: flex;
+}
+.contenedor_form_btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.auth__logo__check {
+  margin-left: 20px;
 }
 
 @media (min-width: 400px) {
