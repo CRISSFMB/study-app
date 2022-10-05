@@ -209,8 +209,15 @@
 
 .auth__logo__check {
     margin-left: 20px;
+    border-radius: 50%;
 }
 
+.auth__errorFormik {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: normal
+}
 
 
 @media screen and (min-width:768px) {
@@ -237,7 +244,6 @@
         align-items: start;
         justify-content: center;
     }
-
 
 
 }
