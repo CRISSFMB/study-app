@@ -200,6 +200,47 @@
 }
 
 .auth__logo__check {
+
+    margin-left: 20px;
+    border-radius: 50%;
+}
+
+.auth__errorFormik {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: normal
+}
+
+
+@media screen and (min-width:768px) {
+    .auth__container {
+        flex-direction: row;
+        height: 100vh;
+        max-width: 1440px;
+    }
+
+    .auth__container-info {
+        width: 100%;
+        height: 90vh;
+        justify-content: center;
+    }
+
+    .auth__container-form {
+        width: 80%;
+        height: 90vh;
+    }
+
+    .auth__div-info {
+        flex-direction: column;
+        width: 60%;
+        align-items: start;
+        justify-content: center;
+    }
+
+
+}
+
   margin-left: 20px;
 }
 
@@ -214,3 +255,4 @@
     background: #011826;
   }
 }
+
