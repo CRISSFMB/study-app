@@ -10,8 +10,12 @@ export const HomeScreen = () => {
     <div>
       <Nav />
       <HeroHome />
+
+      {/* <NavBar /> */}
+
       <NavBar />
       <Carousel />
+
       {/* <CalifUniversidades /> */}
       {/* <Footer /> */}
     </div>
