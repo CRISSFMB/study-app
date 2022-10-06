@@ -1,0 +1,30 @@
+.contacto_btn_blue {
+  width: 100px;
+  height: 48px;
+  padding: 10px, 24px;
+  border-radius: 66px;
+  background-color: #011826;
+  color: #fff;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.contacto_btn_white {
+  width: 100px;
+  height: 48px;
+  padding: 10px, 24px;
+  border-radius: 66px;
+  background-color: #fff;
+  color: #011826;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+@media (min-width: 375px) {
+  .contacto_btn_blue {
+    width: 150px;
+  }
+  .contacto_btn_white {
+    width: 150px;
+  }
+}

@@ -1,213 +1,206 @@
 .auth__container {
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
 }
 
 .auth__container-info {
-    width: 100%;
-    height: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #011826;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #011826;
 }
 
 .auth__container-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .title-h2 {
-    left: 27.84%;
-    right: 1.57%;
-    top: 30.48%;
-    bottom: 8.57%;
-    font-family: 'Gotham';
-    font-style: normal;
-    font-weight: 350;
-    font-size: 20px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.1px;
-    color: #FFFFFF;
-
+  left: 27.84%;
+  right: 1.57%;
+  top: 30.48%;
+  bottom: 8.57%;
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 350;
+  font-size: 20px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+  color: #ffffff;
 }
 
 .auth__whereStudy-title-h3 {
-
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 44px;
-    color: #FFFFFF;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 44px;
+  color: #ffffff;
 }
 
 .auth__whereStudy-title-h6 {
-    margin-top: 22px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    color: #FFFFFF;
+  margin-top: 22px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
 }
 
 .auth__div-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 80%;
-    height: 100%;
-    margin-top: 6px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 100%;
+  margin-top: 6px;
 }
 
 .auth__gorro-img {
-    display: flex;
-    /* margin-top: 15px; */
+  display: flex;
+  /* margin-top: 15px; */
 }
 
 .auth__whereStudy-title-h6-margin {
-    margin-top: -50px;
+  margin-top: -50px;
 }
 
 .auth__whereStudy-title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .svg-auth__container__formLogin-line {
-    margin-top: -14px;
-    margin-left: -20px
+  margin-top: -14px;
+  margin-left: -20px;
 }
 
 .auth__name-label {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 20px;
-    margin-bottom: -15px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.1px;
-    color: #011826;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: -15px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+  color: #011826;
 }
 
-
 .auth__check-recordarme {
-    width: 24px;
-    height: 24px;
-    background: #FFFFFF;
-    border: 1px solid #5D9EA6;
-    border-radius: 5px;
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  border: 1px solid #5d9ea6;
+  border-radius: 5px;
 }
 
 .auth__container-checkbox {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    margin-top: 10px;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .auth__title-recordarme {
-
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    color: #011826;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #011826;
 }
 
 .auth__container-buttons {
-    display: flex;
-    width: 100%;
-    margin-top: 60px;
-    justify-content: space-around;
-    align-items: space-around;
+  display: flex;
+  width: 100%;
+  margin-top: 60px;
+  justify-content: space-around;
+  align-items: space-around;
 }
 
 .auth__logo-redSocial {
-    display: flex;
-    align-items: center;
-    width: 70%;
-    min-width: 220px;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  width: 70%;
+  min-width: 220px;
+  justify-content: space-around;
 }
 
 .auth__sesion-placeholder {
-    width: 173px;
-    height: 20px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.1px;
-    color: #5D9EA6;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  width: 173px;
+  height: 20px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.1px;
+  color: #5d9ea6;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 
 .auth__form {
-    width: 90%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .auth__container__olvidasteContraseña {
-
-    width: 100%;
-    display: flex;
-    justify-content: end;
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }
 
 .auth__olvidasteContraseña {
-    margin-top: 8px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    color: #011826;
+  margin-top: 8px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #011826;
 }
 
 .auth__contenedor-inputAndCheck {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .auth__logo__check {
+
     margin-left: 20px;
     border-radius: 50%;
 }
@@ -247,3 +240,19 @@
 
 
 }
+
+  margin-left: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .auth__container-info {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #011826;
+  }
+}
+
