@@ -1,0 +1,114 @@
+.SearchSection {
+  background: #024059;
+  display: flex;
+  justify-content: center;
+  height: 60vh;
+  align-items: center;
+  margin-top: 4rem;
+  padding: 2rem;
+}
+
+.SearchSection-Content {
+  width: 80%;
+  position: relative;
+}
+
+.wrapper-btns-search {
+  justify-content: center;
+  display: flex;
+  margin-top: 3rem;
+}
+
+.wrapper-btns-search__btn {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  border: 1px solid #ffffff;
+  border-radius: 31px;
+  background-color: transparent;
+  color: white;
+  margin-left: 1rem;
+  cursor: pointer;
+  padding: 1.6rem;
+}
+
+.SearchSection__title {
+  font-family: "Laout Beauty";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 64px;
+  letter-spacing: 0.75px;
+  margin: 0;
+  text-align: center;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 100;
+}
+
+.SearchSection__detail {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  text-align: center;
+  display: block;
+  margin-top: 2rem;
+}
+
+.wrapper-inputs-searchSection {
+  margin-top: 1rem;
+}
+
+.wrapper-inputs-searchSection__input {
+  height: 50.61px;
+  border-radius: 100px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+.btn-controlsSectionSearch {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.btn-controlsSectionSearch__btn {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  width: 187px;
+  height: 48px;
+  border: 1px solid #ffffff;
+  border-radius: 31px;
+  background-color: transparent;
+  color: white;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.searchSection-img {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .SearchSection-Content {
+    width: 40%;
+  }
+
+  .searchSection-img {
+    display: block;
+    position: absolute;
+    width: 200px;
+    top: 0;
+    right: -100px;
+    z-index: 90;
+  }
+}

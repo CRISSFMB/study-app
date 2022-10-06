@@ -8,9 +8,7 @@ import AccesoTransportePublico from "../../onBoarding/components/NavBar/AccesoTr
 import NivelProfesor from "../../onBoarding/components/NavBar/NivelProfesor";
 import Ambiente from "../../onBoarding/components/NavBar/Ambiente";
 import DemandaHoraria from "../../onBoarding/components/NavBar/DemandaHoraria";
-
 import Nav from "../components/nav/Nav";
-
 
 import ContactoForm from "../../Contacto/pages/ContactoForm";
 
