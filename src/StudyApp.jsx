@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { Agrega } from "./Agrega/Agrega";
 import { HomeScreen } from "./home/pages/HomeScreen";
 import {
   EnterScreen,
@@ -15,6 +16,7 @@ function StudyApp() {
       <Route path="/enterScreen" element={<EnterScreen />} />
       <Route path="/searchScreen" element={<SearchScreen />} />
       <Route path="/selectScreen" element={<SelectScreen />} />
+      <Route path="/agregar" element={<Agrega />} />
     </Routes>
   );
 }

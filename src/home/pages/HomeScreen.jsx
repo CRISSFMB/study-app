@@ -10,7 +10,7 @@ export const HomeScreen = () => {
     <div>
       <h1>HomeScreen</h1>
     
-      <Agrega />
+      
       <Footer/>
     </div>
   );
