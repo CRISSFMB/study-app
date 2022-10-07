@@ -9,15 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
+    "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.0",
-    "yup": "^0.32.11",
     "sweetalert2": "^11.4.37",
-    "swiper": "^8.4.2"
-
+    "swiper": "^8.4.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
