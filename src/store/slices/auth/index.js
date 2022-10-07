@@ -4,11 +4,7 @@ export const authSlice = createSlice({
   // nombre del slice o del estado en particular
   name: "auth",
   //estado inicial del estado auth
-  initialState: {
-    nombre: "",
-    email: "",
-    token: "",
-  },
+  initialState: [],
   reducers: {
     // funcion encargada de settear el estado
     setAuth: (state, action) => {
