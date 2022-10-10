@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function ButtonSocial({children}) {
+export default function ButtonSocial({children, onclick}) {
   return (
-    <button  className='auth__style-button auth__style-input-social'> {children}</button>
+    <button onClick={onclick} className='auth__style-button auth__style-input-social'> {children}</button>
   )
 }

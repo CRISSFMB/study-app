@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { Field, Formik, Form } from 'formik'
 import { initialValuesRegister } from './InitialValues'
 import { validationSchemaRegister } from './ValidationSchema'
+import { userRegistration } from '../../../../Firebase/firebase-utils'
 export default function FormRegister() {
 
     const navigate = useNavigate()
@@ -21,7 +22,7 @@ export default function FormRegister() {
             <Formik
                 initialValues={initialValuesRegister}
                 validationSchema={validationSchemaRegister}
-                onSubmit={values => console.log(values)}
+                onSubmit={values => userRegistration(values)}
             >
                 {({ errors, touched,values}) => (
                     <Form className='auth__form'>

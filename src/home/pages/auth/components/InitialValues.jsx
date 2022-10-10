@@ -11,3 +11,7 @@ export const initialValuesRegister = {
     password:'',
     repeatPassword:''
 }
+
+export const initialValuesFotgotPassword = {
+    email:''
+}

@@ -29,3 +29,7 @@ export const validationSchemaRegister = Yup.object({
       .oneOf([Yup.ref('password'), null], 'La contraseña no coincide')
       .required(REQUIRED)
 });
+
+export const validationSchemaForgotPassword = Yup.object({
+    email: Yup.string().email(EMAIL).required(REQUIRED),
+});

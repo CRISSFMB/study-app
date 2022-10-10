@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import swal from "sweetalert2";
 import Button from './Button';
 import ButtonSocial from './ButtonSocial';
 import Input from './Input';
@@ -7,6 +8,7 @@ import { Formik, Form, Field } from 'formik';
 import Salto from './Salto';
 import { initialValuesLogin } from './InitialValues';
 import { validationSchemaLogin } from './ValidationSchema';
+import { auth, dataUser, loginLocal, signInGoogle } from '../../../../Firebase/firebase-utils';
 
 export default function FormLogin() {
     const navigate = useNavigate()
@@ -14,9 +16,23 @@ export default function FormLogin() {
         return navigate("/register")
     }
 
+    const onGoogleSignHandler = async () => {
+        const user = await signInGoogle();
+        console.log("user", user)
+        //token user
+        console.log("TokenUser",auth.currentUser.accessToken)
+
+        const { email, photoURL } = user
+
+        // dispatch({ type: "login", value: { name: displayName.split(" ")[0], email, photoURL } })
+        return navigate('/');
+    }
+
+
     const buttonGoogle = () => {
         return (
-            <ButtonSocial>
+
+            <ButtonSocial onclick={onGoogleSignHandler}>
                 <div className='auth__logo-redSocial'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="38px" height="38px">
                         <path fill="#fbc02d" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12	s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20	s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
@@ -31,7 +47,7 @@ export default function FormLogin() {
 
     const buttonFacebook = () => {
         return (
-            <ButtonSocial>
+            <ButtonSocial onclick={dataUser}>
                 <div className='auth__logo-redSocial'>
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M32 16C32 7.1625 24.8375 0 16 0C7.1625 0 0 7.1625 0 16C0 23.9875 5.85 30.6062 13.5 31.8062V20.625H9.4375V16H13.5V12.475C13.5 8.46563 15.8875 6.25 19.5438 6.25C21.2938 6.25 23.125 6.5625 23.125 6.5625V10.5H21.1063C19.1188 10.5 18.5 11.7344 18.5 13V16H22.9375L22.2281 20.625H18.5V31.8062C26.15 30.6062 32 23.9875 32 16Z" fill="#1877F2" />
@@ -53,9 +69,30 @@ export default function FormLogin() {
             <Formik
                 initialValues={initialValuesLogin}
                 validationSchema={validationSchemaLogin}
-                onSubmit={(values, { resetForm }) => {
-                    resetForm({ values: { password: "", email: "" } }),
-                        console.log(values)
+                onSubmit={async (values, { resetForm }) => {
+                    try {
+                       await loginLocal(values)
+                       const data = await dataUser()
+                       // DataUserPerfil
+                       console.log("DataUser",data)
+                        swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Logueo exitoso!!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        //Token firebase
+                        console.log(auth.currentUser.accessToken)
+
+                        //resetFormLogueo
+                        resetForm({ values: { password: "", email: "" } })
+                    }
+                    catch (err) {
+                        console.log(err)
+                    }
+
+
                 }}
             >
                 {({ errors, touched }) => (
@@ -98,10 +135,10 @@ export default function FormLogin() {
 
                         <div className='auth__container__olvidasteContraseña'>
                             {/* Aqui va Link */}
-                            <a className='auth__olvidasteContraseña'>
+                            <Link to="/forgotPassword" className='auth__olvidasteContraseña' >
                                 Olvidaste la contraseña?
 
-                            </a>
+                            </Link>
                         </div>
                         <div className='auth__container-checkbox'>
                             <input type="checkbox" className='auth__check-recordarme' />
