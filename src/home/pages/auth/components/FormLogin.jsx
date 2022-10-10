@@ -11,10 +11,10 @@ import { validationSchemaLogin } from './ValidationSchema';
 import { auth, dataUser, loginLocal, signInGoogle } from '../../../../Firebase/firebase-utils';
 
 export default function FormLogin() {
-    const navigate = useNavigate()
-    const buttonRedirect = () => {
-        return navigate("/register")
-    }
+  const navigate = useNavigate();
+  const buttonRedirect = () => {
+    return navigate("/register");
+  };
 
     const onGoogleSignHandler = async () => {
         const user = await signInGoogle();
@@ -145,19 +145,21 @@ export default function FormLogin() {
                             <p className='auth__title-recordarme'>Recordarme</p>
                         </div>
 
-                        <div className='auth__container-buttons'>
-                            <Button background={"#011826"} color={"#FFFFFF"}>
-                                Iniciar sesión
-                            </ Button>
-                            <Button onclick={buttonRedirect} background={"#FFFFFF"} color={"#011826"}>
-                                Registrarme
-                            </ Button>
-
-                        </div>
-                    </Form>
-                )}
-            </Formik>
-
-        </>
-    )
+            <div className="auth__container-buttons">
+              <Button background={"#011826"} color={"#FFFFFF"}>
+                Iniciar sesión
+              </Button>
+              <Button
+                onclick={buttonRedirect}
+                background={"#FFFFFF"}
+                color={"#011826"}
+              >
+                Registrarme
+              </Button>
+            </div>
+          </Form>
+        )}
+      </Formik>
+    </>
+  );
 }
