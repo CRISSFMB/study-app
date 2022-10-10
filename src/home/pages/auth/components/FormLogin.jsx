@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import swal from "sweetalert2";
 import Button from './Button';
@@ -8,24 +8,36 @@ import { Formik, Form, Field } from 'formik';
 import Salto from './Salto';
 import { initialValuesLogin } from './InitialValues';
 import { validationSchemaLogin } from './ValidationSchema';
-import { auth, dataUser, loginLocal, signInGoogle } from '../../../../Firebase/firebase-utils';
+import { auth, dataUser, loginLocal, signInGoogle, signOutUser } from '../../../../Firebase/firebase-utils';
+import { login } from "../../../../store/slices/auth";
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function FormLogin() {
-  const navigate = useNavigate();
-  const buttonRedirect = () => {
-    return navigate("/register");
-  };
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const buttonRedirect = () => {
+        return navigate("/register");
+    };
+    const state = useSelector(state => state.auth)
+
+    useEffect(() => {
+
+        return () => {
+            console.log(state)
+        }
+    }, [state])
 
     const onGoogleSignHandler = async () => {
         const user = await signInGoogle();
         console.log("user", user)
         //token user
-        console.log("TokenUser",auth.currentUser.accessToken)
+        console.log("TokenUser", auth.currentUser.accessToken)
+        const token = auth.currentUser.accessToken
 
-        const { email, photoURL } = user
+        const { email, photoURL, displayName } = user
 
-        // dispatch({ type: "login", value: { name: displayName.split(" ")[0], email, photoURL } })
-        return navigate('/');
+        dispatch(login({ email, photoURL, displayName, token }))
+        return navigate('/homeScreen');
     }
 
 
@@ -47,7 +59,7 @@ export default function FormLogin() {
 
     const buttonFacebook = () => {
         return (
-            <ButtonSocial onclick={dataUser}>
+            <ButtonSocial onclick={signOutUser}>
                 <div className='auth__logo-redSocial'>
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M32 16C32 7.1625 24.8375 0 16 0C7.1625 0 0 7.1625 0 16C0 23.9875 5.85 30.6062 13.5 31.8062V20.625H9.4375V16H13.5V12.475C13.5 8.46563 15.8875 6.25 19.5438 6.25C21.2938 6.25 23.125 6.5625 23.125 6.5625V10.5H21.1063C19.1188 10.5 18.5 11.7344 18.5 13V16H22.9375L22.2281 20.625H18.5V31.8062C26.15 30.6062 32 23.9875 32 16Z" fill="#1877F2" />
@@ -71,25 +83,36 @@ export default function FormLogin() {
                 validationSchema={validationSchemaLogin}
                 onSubmit={async (values, { resetForm }) => {
                     try {
-                       await loginLocal(values)
-                       const data = await dataUser()
-                       // DataUserPerfil
-                       console.log("DataUser",data)
-                        swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Logueo exitoso!!',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                        //Token firebase
-                        console.log(auth.currentUser.accessToken)
+                      const result =  await loginLocal(values)
+                      console.log("result",result)
+                      
+                        if (result){
+
+                          const data = await dataUser()
+                           // DataUserPerfil
+                           console.log("DataUser", data)
+                           const { nameUser, email } = data
+                           swal.fire({
+                               position: 'top-end',
+                               icon: 'success',
+                               title: 'Logueo exitoso!!',
+                               showConfirmButton: false,
+                               timer: 1500
+                           })
+                           //Token firebase
+                           console.log(auth.currentUser.accessToken)
+                           const token = auth.currentUser.accessToken
+                           dispatch(login({ nameUser, email, token }))
+                           return navigate('/homeScreen');
+                        }                     
 
                         //resetFormLogueo
-                        resetForm({ values: { password: "", email: "" } })
+                       
+                        
                     }
                     catch (err) {
                         console.log(err)
+                        resetForm({ values: { password: "", email: "" } })
                     }
 
 
@@ -145,21 +168,21 @@ export default function FormLogin() {
                             <p className='auth__title-recordarme'>Recordarme</p>
                         </div>
 
-            <div className="auth__container-buttons">
-              <Button background={"#011826"} color={"#FFFFFF"}>
-                Iniciar sesión
-              </Button>
-              <Button
-                onclick={buttonRedirect}
-                background={"#FFFFFF"}
-                color={"#011826"}
-              >
-                Registrarme
-              </Button>
-            </div>
-          </Form>
-        )}
-      </Formik>
-    </>
-  );
+                        <div className="auth__container-buttons">
+                            <Button background={"#011826"} color={"#FFFFFF"}>
+                                Iniciar sesión
+                            </Button>
+                            <Button
+                                onclick={buttonRedirect}
+                                background={"#FFFFFF"}
+                                color={"#011826"}
+                            >
+                                Registrarme
+                            </Button>
+                        </div>
+                    </Form>
+                )}
+            </Formik>
+        </>
+    );
 }

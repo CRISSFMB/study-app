@@ -29,6 +29,7 @@ export const loginLocal = async (valueUser) => {
     try {
 
         const user = await signInWithEmailAndPassword(auth, email, password)
+        return user
     }
     catch (err) {
         console.log(err)
@@ -79,6 +80,7 @@ export const signOutUser = () => {
 
     signOut(auth).then(() => {
         // Sign-out successful.
+        console.log("Sesion cerrada")
     }).catch((error) => {
         // An error happened.
     });
@@ -159,7 +161,7 @@ export const resetPassword = async (email) => {
     }
     catch (err) {
         if (err.code == "auth/user-not-found") {
-            swal({
+            swal.fire({
                 title: 'El email no tiene una cuenta creada',
                 showClass: {
                     popup: 'animate__animated animate__fadeInDown'
