@@ -14,28 +14,17 @@ export const authSlice = createSlice({
     status: null,
   },
   //en extra reducer se maneja la petiecion creada en getUser
-  extraReducers: {
-    [getUser.pending]: (state, action) => {
-      state.status = "loading";
-    },
-    [getUser.fulfilled]: (state, action) => {
+
+  reducers: {
+    auth: (state, action) => {
       state.auth = action.payload;
-      state.status = "success";
     },
-    [getUser.rejected]: (state, action) => {
-      state.status = "failed";
-    },
-    reducer: {
-      login: (state, action) => {
-        state.auth = action.payload;
-      },
-      logOut: (state, action) => {
-        state.auth = "";
-      },
+    logOut: (state, action) => {
+      state.auth = "";
     },
   },
 });
-export const { login, logOut } = authSlice.actions;
+export const { auth, logOut } = authSlice.actions;
 
 export default authSlice.reducer;
 /// exporto todo los reducer adentro de auth y los importo en store
