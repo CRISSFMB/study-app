@@ -1,10 +1,12 @@
 import React from 'react'
 import Button from './Button'
 import Input from './Input'
+import swal from "sweetalert2"
 import { useNavigate } from 'react-router-dom'
 import { Field, Formik, Form } from 'formik'
 import { initialValuesRegister } from './InitialValues'
 import { validationSchemaRegister } from './ValidationSchema'
+import { userRegistration } from '../../../../Firebase/firebase-utils'
 export default function FormRegister() {
 
     const navigate = useNavigate()
@@ -21,7 +23,32 @@ export default function FormRegister() {
             <Formik
                 initialValues={initialValuesRegister}
                 validationSchema={validationSchemaRegister}
-                onSubmit={values => console.log(values)}
+                onSubmit={async (values, {resetForm}) => {
+                    try{
+
+                       await userRegistration(values)
+                       return navigate('/homeScreen');
+
+                    }
+                    catch(error) {
+                        if (error.code === "auth/email-already-in-use") {
+                            
+                              swal.fire({
+                                title: 'El email ya tiene una cuenta creada',
+                                showClass: {
+                                  popup: 'animate__animated animate__fadeInDown'
+                                },
+                                hideClass: {
+                                  popup: 'animate__animated animate__fadeOutUp'
+                                },
+                                timer: 1500
+                              })
+                              resetForm({ values:"" })
+          
+                          }
+                    }
+                }
+            }
             >
                 {({ errors, touched,values}) => (
                     <Form className='auth__form'>

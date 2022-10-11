@@ -11,6 +11,7 @@ import DemandaHoraria from "../../onBoarding/components/NavBar/DemandaHoraria";
 import Nav from "../components/nav/Nav";
 
 import ContactoForm from "../../Contacto/pages/ContactoForm";
+import ForgotPassword from "../pages/auth/ForgotPassword";
 
 export const HomeRoutes = () => {
   return (
@@ -25,6 +26,7 @@ export const HomeRoutes = () => {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="contacto" element={<ContactoForm />} />
+        <Route path="forgotPassword" element={<ForgotPassword />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

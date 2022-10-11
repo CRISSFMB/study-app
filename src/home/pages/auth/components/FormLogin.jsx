@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import swal from "sweetalert2";
 import Button from "./Button";
 import ButtonSocial from "./ButtonSocial";
 import Input from "./Input";
@@ -7,16 +8,46 @@ import { Formik, Form, Field } from "formik";
 import Salto from "./Salto";
 import { initialValuesLogin } from "./InitialValues";
 import { validationSchemaLogin } from "./ValidationSchema";
+import {
+  auth,
+  dataUser,
+  loginLocal,
+  signInGoogle,
+  signOutUser,
+} from "../../../../Firebase/firebase-utils";
+import { login } from "../../../../store/slices/auth";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function FormLogin() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const buttonRedirect = () => {
     return navigate("/register");
+  };
+  const state = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    return () => {
+      console.log(state);
+    };
+  }, [state]);
+
+  const onGoogleSignHandler = async () => {
+    const user = await signInGoogle();
+    console.log("user", user);
+    //token user
+    console.log("TokenUser", auth.currentUser.accessToken);
+    const token = auth.currentUser.accessToken;
+
+    const { email, photoURL, displayName } = user;
+
+    dispatch(login({ email, photoURL, displayName, token }));
+    return navigate("/homeScreen");
   };
 
   const buttonGoogle = () => {
     return (
-      <ButtonSocial>
+      <ButtonSocial onclick={onGoogleSignHandler}>
         <div className="auth__logo-redSocial">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +80,7 @@ export default function FormLogin() {
 
   const buttonFacebook = () => {
     return (
-      <ButtonSocial>
+      <ButtonSocial onclick={signOutUser}>
         <div className="auth__logo-redSocial">
           <svg
             width="32"
@@ -79,9 +110,35 @@ export default function FormLogin() {
       <Formik
         initialValues={initialValuesLogin}
         validationSchema={validationSchemaLogin}
-        onSubmit={(values, { resetForm }) => {
-          resetForm({ values: { password: "", email: "" } }),
-            console.log(values);
+        onSubmit={async (values, { resetForm }) => {
+          try {
+            const result = await loginLocal(values);
+            console.log("result", result);
+
+            if (result) {
+              const data = await dataUser();
+              // DataUserPerfil
+              console.log("DataUser", data);
+              const { nameUser, email } = data;
+              swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Logueo exitoso!!",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              //Token firebase
+              console.log(auth.currentUser.accessToken);
+              const token = auth.currentUser.accessToken;
+              dispatch(login({ nameUser, email, token }));
+              return navigate("/homeScreen");
+            }
+
+            //resetFormLogueo
+          } catch (err) {
+            console.log(err);
+            resetForm({ values: { password: "", email: "" } });
+          }
         }}
       >
         {({ errors, touched }) => (
@@ -117,9 +174,9 @@ export default function FormLogin() {
 
             <div className="auth__container__olvidasteContraseña">
               {/* Aqui va Link */}
-              <a className="auth__olvidasteContraseña">
+              <Link to="/forgotPassword" className="auth__olvidasteContraseña">
                 Olvidaste la contraseña?
-              </a>
+              </Link>
             </div>
             <div className="auth__container-checkbox">
               <input type="checkbox" className="auth__check-recordarme" />

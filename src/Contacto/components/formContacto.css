@@ -1,3 +1,7 @@
+.form_contacto {
+  width: 100%;
+  max-width: 419px;
+}
 .form_contacto_label {
   font-family: "Roboto";
   font-style: normal;
