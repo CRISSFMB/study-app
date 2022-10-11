@@ -11,27 +11,13 @@ export const authSlice = createSlice({
   //estado inicial del estado auth
   initialState: {
     auth: {},
-    status: null,
   },
-  //en extra reducer se maneja la petiecion creada en getUser
-  extraReducers: {
-    [getUser.pending]: (state, action) => {
-      state.status = "loading";
-    },
-    [getUser.fulfilled]: (state, action) => {
+     reducers: {
+    login: (state, action) => {
       state.auth = action.payload;
-      state.status = "success";
     },
-    [getUser.rejected]: (state, action) => {
-      state.status = "failed";
-    },
-    reducer: {
-      login: (state, action) => {
-        state.auth = action.payload;
-      },
-      logOut: (state, action) => {
-        state.auth = "";
-      },
+    logOut: (state, action) => {
+      state.auth = "";
     },
   },
 });
