@@ -27,16 +27,16 @@ const Carousel = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <CardSlider />
+          <CardSlider localidad={"Buenos Aires"} />
         </SwiperSlide>
         <SwiperSlide>
-          <CardSlider />
+          <CardSlider localidad={"Cordoba"} />
         </SwiperSlide>
         <SwiperSlide>
-          <CardSlider />
+          <CardSlider localidad={"Valencia"} />
         </SwiperSlide>
         <SwiperSlide>
-          <CardSlider />
+          <CardSlider localidad={"Madrid"} />
         </SwiperSlide>
       </Swiper>
     </>

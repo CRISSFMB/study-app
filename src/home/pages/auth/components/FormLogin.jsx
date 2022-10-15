@@ -59,6 +59,8 @@ export default function FormLogin() {
 
     const buttonFacebook = () => {
         return (
+
+            // la funcion getDataUniversity(param), lleva como parametros la ciudad a traer
             <ButtonSocial onclick={signOutUser}>
                 <div className='auth__logo-redSocial'>
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
