@@ -1,7 +1,7 @@
 import React from 'react'
 import './NivelAcademico.css'
 import {Link} from 'react-router-dom'
-import Icon from './Icons/CargaLlena'
+
 import CargaLlena from './Icons/CargaLlena'
 import Carga1Barra from './Icons/Carga1Barra'
 import Carga3Barras from './Icons/Carga3Barras'
