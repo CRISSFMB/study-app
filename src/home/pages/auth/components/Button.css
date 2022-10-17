@@ -1,0 +1,21 @@
+
+.auth__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    gap: 8px;
+    width: 45%;
+    height: 48px;
+    border: 1px solid #011826;
+    border-radius: 31px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    cursor:pointer
+}
+
+.auth__button:hover {
+    opacity: 0.6 !important;
+}
+
