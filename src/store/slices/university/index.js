@@ -3,18 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 const universitySlice = createSlice({
   name: "university", //nombre del estado
 
-  initialState: { value: "" },
+  initialState: { university: {} },
   reducers: {
+    getUniversity: (state, action) => {
+      state.university = action.payload;
+    },
+
     addUniversity: (state, action) => {
-      state.value.push(action.payload);
+      state.university.push(action.payload);
     },
     deleteUniversity: (state, action) => {
-      state.value = state.value.filter(
+      state.university = state.university.filter(
         (university) => university.id !== action.payload.id
       );
     },
     updateUniversity: (state, action) => {
-      state.value.map((university) => {
+      state.university.map((university) => {
         if (university.id === action.payload.id) {
           university.name = action.payload;
         }
@@ -23,7 +27,11 @@ const universitySlice = createSlice({
   },
 });
 
-export const { addUniversity, deleteUniversity, updateUniversity } =
-  universitySlice.actions;
+export const {
+  getUniversity,
+  addUniversity,
+  deleteUniversity,
+  updateUniversity,
+} = universitySlice.actions;
 
 export default universitySlice.reducer;
