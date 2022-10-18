@@ -120,7 +120,7 @@ const NivelAcademico = () => {
             </div>
 
             <div className='buttonVerMas'>
-                <Link className='verMas' to="/homeScreen">Ver Mas</Link>
+                <Link className='verMas' to="/homeScreen">Regresar</Link>
             </div>
 
            

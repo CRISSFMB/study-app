@@ -17,19 +17,18 @@ export const HomeRoutes = () => {
   return (
     <>
       <Routes>
-        
-        <Route path="/NivelAcademico" element={<NivelAcademico />} />
-        <Route path="/AccesoTransporte" element={<AccesoTransportePublico />} />
-        <Route path="/NivelProfesor" element={<NivelProfesor />} />
-        <Route path="/Ambiente" element={<Ambiente />} />
-        <Route path="/DemandaHoraria" element={<DemandaHoraria />} />
+        <Route path="homeScreen/NivelAcademico" element={<NivelAcademico />} />
+        <Route path="homeScreen/AccesoTransporte" element={<AccesoTransportePublico />} />
+        <Route path="homeScreen/NivelProfesor" element={<NivelProfesor />} />
+        <Route path="homeScreen/Ambiente" element={<Ambiente />} />
+        <Route path="homeScreen/DemandaHoraria" element={<DemandaHoraria />} />
         <Route path="homeScreen" element={<HomeScreen />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="contacto" element={<ContactoForm />} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
 
-        {/* <Route path="*" element={<Navigate to="/" />} /> */}
+        <Route path="*/" element={<Navigate to="/" />} />
       </Routes>
     </>
   );
