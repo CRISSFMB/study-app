@@ -17,7 +17,7 @@ const RutasUniversidades = () => {
         <NavBar/>
 
         <Routes>
-            <Route path="/NivelAcademico" element ={<NivelAcademico/>} />
+            <Route path="/RutasUniversidades" element ={<NivelAcademico/>} />
             <Route path="/AccesoTransporte" element ={<AccesoTransportePublico/>} />
             <Route path="/NivelProfesor" element ={<NivelProfesor/>} />
             <Route path="/Ambiente" element ={<Ambiente/>} />
