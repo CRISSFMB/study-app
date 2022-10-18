@@ -1,0 +1,60 @@
+.form_contacto {
+  width: 100%;
+  max-width: 419px;
+}
+.form_contacto_label {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: -15px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+  color: #011826;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+.contenedorInput {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  align-items: center;
+  width: 100%;
+}
+.contenedor_textArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacto_textArea {
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 66px;
+  margin-top: 30px;
+}
+.contactoTextArea > textarea {
+  background-color: #d9d9d9;
+  resize: none;
+  border: none;
+  display: flex;
+}
+.contenedor_form_btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.auth__logo__check {
+  margin-left: 20px;
+}
+
+@media (min-width: 400px) {
+  .contacto_logo {
+    margin-left: 5px;
+  }
+}

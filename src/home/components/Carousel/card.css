@@ -1,0 +1,67 @@
+.card-slider {
+  padding: 10px;
+  width: 90%;
+  max-width: 446px;
+  border: 1px solid black;
+  margin-top: 2rem;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.star {
+  display: flex;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.star__image {
+  width: 10px;
+}
+
+.card__header__title {
+  margin: 0;
+}
+.box {
+  height: 73px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  border-right: 1px solid black;
+}
+.card__footer__title {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 10px;
+}
+
+.card__footer__number {
+  font-size: 10px;
+}
+
+.card__footer {
+  display: flex;
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  .card__footer__title {
+    font-size: 16px;
+  }
+
+  .card__footer__number {
+    font-size: 16px;
+  }
+}
