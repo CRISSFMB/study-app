@@ -12,23 +12,23 @@ import Nav from "../components/nav/Nav";
 
 import ContactoForm from "../../Contacto/pages/ContactoForm";
 import ForgotPassword from "../pages/auth/ForgotPassword";
+import RutasUniversidades from "../../onBoarding/components/NavBar/RutasUniversidades";
 
 export const HomeRoutes = () => {
   return (
     <>
+    
       <Routes>
-        <Route path="/NivelAcademico" element={<NivelAcademico />} />
-        <Route path="/AccesoTransporte" element={<AccesoTransportePublico />} />
-        <Route path="/NivelProfesor" element={<NivelProfesor />} />
-        <Route path="/Ambiente" element={<Ambiente />} />
-        <Route path="/DemandaHoraria" element={<DemandaHoraria />} />
+
+        
         <Route path="homeScreen" element={<HomeScreen />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="contacto" element={<ContactoForm />} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
+        <Route path="/*" element={<RutasUniversidades />} />
 
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
     </>
   );

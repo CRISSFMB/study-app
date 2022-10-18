@@ -57,7 +57,7 @@ const CardSlider = ({localidad}) => {
           <span className="card__footer__title">alumnos</span>
         </div>
       </div>
-    </div>: <p>Cargando..</p>
+    </div> : <p>Cargando..</p>
   );
 };
 
