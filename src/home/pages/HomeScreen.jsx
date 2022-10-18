@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+import React from "react";
+import { Agrega } from "../../Agrega/Agrega";
+
+=======
 import CalifUniversidades from "../../Calificar/CalifUniversidades";
+>>>>>>> 5153a74dd782ef3656b5d1d2749562e1f6706ded
 import Footer from "../../Footer/Footer";
 
 import NavBar from "../../onBoarding/components/NavBar/NavBar";
@@ -11,6 +17,14 @@ import SearchSection from "../components/search/SearchSection";
 
 export const HomeScreen = () => {
   return (
+<<<<<<< HEAD
+    <div>
+      <h1>HomeScreen</h1>
+    
+      
+      <Footer/>
+    </div>
+=======
     <>
       <Nav />
 
@@ -32,5 +46,6 @@ export const HomeScreen = () => {
       
       <Footer />
     </>
+>>>>>>> 5153a74dd782ef3656b5d1d2749562e1f6706ded
   );
 };
