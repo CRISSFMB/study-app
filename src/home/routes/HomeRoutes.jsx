@@ -17,6 +17,7 @@ export const HomeRoutes = () => {
   return (
     <>
       <Routes>
+        
         <Route path="/NivelAcademico" element={<NivelAcademico />} />
         <Route path="/AccesoTransporte" element={<AccesoTransportePublico />} />
         <Route path="/NivelProfesor" element={<NivelProfesor />} />
@@ -28,7 +29,7 @@ export const HomeRoutes = () => {
         <Route path="contacto" element={<ContactoForm />} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
 
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
     </>
   );

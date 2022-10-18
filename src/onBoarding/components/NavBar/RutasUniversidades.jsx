@@ -10,7 +10,7 @@ import NivelAcademico from './NivelAcademico'
 import NivelProfesor from './NivelProfesor'
 
 const RutasUniversidades = () => {
-    
+ 
     return (
     <>
         
