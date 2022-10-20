@@ -12,6 +12,8 @@ import Nav from "../components/nav/Nav";
 
 import ContactoForm from "../../Contacto/pages/ContactoForm";
 import ForgotPassword from "../pages/auth/ForgotPassword";
+import { AgregaUniversidad } from "../../Agrega/Universidad/AgregaUniversidad";
+import {AgregarCarrera} from "../../Agrega/Carrera/AgregarCarrera";
 
 export const HomeRoutes = () => {
   return (
@@ -28,6 +30,8 @@ export const HomeRoutes = () => {
         <Route path="register" element={<Register />} />
         <Route path="contacto" element={<ContactoForm />} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
+        <Route path="agregarUniversidad" element={<AgregaUniversidad />} /> 
+        <Route path="agregarCarrera" element={<AgregarCarrera />} /> 
 
         {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>

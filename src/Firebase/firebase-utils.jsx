@@ -2,19 +2,28 @@ import { firebaseConfig } from "./firebase-config";
 import { initializeApp } from "firebase/app";
 import swal from "sweetalert2";
 
-import { getFirestore, doc, setDoc, getDoc, getDocs, query, collection } from "firebase/firestore"
 import {
-    getAuth,
-    signOut,
-    GoogleAuthProvider,
-    signInWithPopup,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    sendPasswordResetEmail,
-    sendEmailVerification,
-    onAuthStateChanged
-} from "firebase/auth"
+  getFirestore,
+  doc,
+  addDoc,
 
+  setDoc,
+  getDoc,
+  getDocs,
+  query,
+  collection,
+} from "firebase/firestore";
+import {
+  getAuth,
+  signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  sendEmailVerification,
+  onAuthStateChanged,
+} from "firebase/auth";
 
 const app = initializeApp(firebaseConfig);
 
@@ -22,206 +31,185 @@ export const db = getFirestore(app);
 
 export const auth = getAuth(app);
 
-
 //logearse
 export const loginLocal = async (valueUser) => {
-    const { email, password } = valueUser
-    try {
-
-        const user = await signInWithEmailAndPassword(auth, email, password)
-        return user
+  const { email, password } = valueUser;
+  try {
+    const user = await signInWithEmailAndPassword(auth, email, password);
+    return user;
+  } catch (err) {
+    console.log(err);
+    if (err.code == "auth/wrong-password") {
+      swal.fire({
+        title: "La contraseña es incorrecta",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+        timer: 1500,
+      });
     }
-    catch (err) {
-        console.log(err)
-        if (err.code == "auth/wrong-password") {
-            swal.fire({
-                title: 'La contraseña es incorrecta',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                },
-                timer: 1500
-            })
-
-        }
-        if (err.code == "auth/user-not-found") {
-            swal.fire({
-                title: 'El email no tiene una cuenta creada',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                },
-                timer: 1500
-            })
-
-        }
-        if (err.code == "auth/invalid-email")
-            swal.fire({
-                title: 'El email es invalido',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                },
-                timer: 1500
-            })
-
+    if (err.code == "auth/user-not-found") {
+      swal.fire({
+        title: "El email no tiene una cuenta creada",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+        timer: 1500,
+      });
     }
-
+    if (err.code == "auth/invalid-email")
+      swal.fire({
+        title: "El email es invalido",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+        timer: 1500,
+      });
+  }
 };
 
 //cerrar sesion
 export const signOutUser = () => {
-
-    signOut(auth).then(() => {
-        // Sign-out successful.
-        console.log("Sesion cerrada")
-    }).catch((error) => {
-        // An error happened.
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+      console.log("Sesion cerrada");
+    })
+    .catch((error) => {
+      // An error happened.
     });
-
-}
+};
 
 // User Registration
 export const userRegistration = async (valueUser) => {
-    const { email, password, fullName, nameUser } = valueUser
-    console.log("valoresUser", valueUser)
-    const res = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password);
+  const { email, password, fullName, nameUser } = valueUser;
+  console.log("valoresUser", valueUser);
+  const res = await createUserWithEmailAndPassword(auth, email, password);
 
-    const user = res.user;
+  const user = res.user;
 
-    await sendEmailVerification(user, {
-        url: "http://localhost:5173"
-    })
+  await sendEmailVerification(user, {
+    url: "http://localhost:5173",
+  });
 
-    swal.fire({
-        title: `Se envio un correo de verificacion a ${email}`,
-        showClass: {
-            popup: 'animate__animated animate__fadeInDown'
-        },
-        hideClass: {
-            popup: 'animate__animated animate__fadeOutUp'
-        },
-        icon: 'success',
-        timer: 2000
-    })
+  swal.fire({
+    title: `Se envio un correo de verificacion a ${email}`,
+    showClass: {
+      popup: "animate__animated animate__fadeInDown",
+    },
+    hideClass: {
+      popup: "animate__animated animate__fadeOutUp",
+    },
+    icon: "success",
+    timer: 2000,
+  });
 
-    // localStorage.setItem("userName", user)
+  // localStorage.setItem("userName", user)
 
-    createUserProfile(user, fullName, nameUser)
+  createUserProfile(user, fullName, nameUser);
 
-    return res;
-
+  return res;
 };
-
 
 // Google Sign-in
 const providerGoogle = new GoogleAuthProvider();
 
 export const signInGoogle = () => {
+  return signInWithPopup(auth, providerGoogle)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      console.log("credential", credential);
+      //token
+      const token = credential.accessToken;
 
-    return signInWithPopup(auth, providerGoogle)
-        .then((result) => {
+      const user = result.user;
 
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            console.log("credential", credential)
-            //token
-            const token = credential.accessToken;
+      createUserProfile(user, user.displayName);
+      // token google
+      console.log("TokenGoogle", token);
 
-            const user = result.user;
-
-            createUserProfile(user, user.displayName)
-            // token google
-            console.log("TokenGoogle", token)
-
-            return user
-        }).catch((error) => {
-
-            console.log(error)
-        });
-
-}
+      return user;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 //reset passsword
 export const resetPassword = async (email) => {
-
-    try {
-        await sendPasswordResetEmail(auth, email, {
-            url: "http://localhost:5173/login"
-        });
-        alert(`Se envio un correo de recuperacion de contraseña a ${email}`)
+  try {
+    await sendPasswordResetEmail(auth, email, {
+      url: "http://localhost:5173/login",
+    });
+    alert(`Se envio un correo de recuperacion de contraseña a ${email}`);
+  } catch (err) {
+    if (err.code == "auth/user-not-found") {
+      swal.fire({
+        title: "El email no tiene una cuenta creada",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+        timer: 1500,
+      });
     }
-    catch (err) {
-        if (err.code == "auth/user-not-found") {
-            swal.fire({
-                title: 'El email no tiene una cuenta creada',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                },
-                timer: 1500
-            })
+  }
+};
 
-        }
-    }
-}
-
-// traer nombre user 
-export const dataUser = async user => {
-
-    const docRef = await doc(db, `users/${auth.currentUser?.uid}`);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-        return docSnap.data();
-    }
-    else return null
-}
+// traer nombre user
+export const dataUser = async (user) => {
+  const docRef = await doc(db, `users/${auth.currentUser?.uid}`);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    return docSnap.data();
+  } else return null;
+};
 
 //crear perfil user
 export const createUserProfile = async (userAuthenticated, name, nameUser) => {
-    const userReference = doc(db, `users/${userAuthenticated.uid}`)
-    console.log("photoUser", userAuthenticated.photoURL)
-    const result = await getDoc(userReference)
+  const userReference = doc(db, `users/${userAuthenticated.uid}`);
+  console.log("photoUser", userAuthenticated.photoURL);
+  const result = await getDoc(userReference);
 
-    if (!result.exists()) {
-        const { email, photoURL } = userAuthenticated;
+  if (!result.exists()) {
+    const { email, photoURL } = userAuthenticated;
 
-        try {
-            await setDoc(userReference, {
-                photoURL,
-                name,
-                nameUser: null || nameUser,
-                createAt: new Date(),
-                email
-            })
-        } catch (error) {
-            console.log({ error })
-        }
+    try {
+      await setDoc(userReference, {
+        photoURL,
+        name,
+        nameUser: null || nameUser,
+        createAt: new Date(),
+        email,
+      });
+    } catch (error) {
+      console.log({ error });
     }
-    const { photoURL } = userAuthenticated;
-    if (result.exists() && !photoURL) {
-        try {
-            await setDoc(userReference, {
-                ...result,
-                photoURL
-
-            })
-        } catch (error) {
-            console.log({ error })
-        }
+  }
+  const { photoURL } = userAuthenticated;
+  if (result.exists() && !photoURL) {
+    try {
+      await setDoc(userReference, {
+        ...result,
+        photoURL,
+      });
+    } catch (error) {
+      console.log({ error });
     }
-    // return result
-    return userReference;
+  }
+  // return result
+  return userReference;
 };
 
 //persister auth
@@ -245,7 +233,6 @@ export const createUserProfile = async (userAuthenticated, name, nameUser) => {
 //     })
 // }
 
-
 // id token de la app (cliente)
 // getAuth()
 //   .verifyIdToken(idToken)
@@ -256,3 +243,36 @@ export const createUserProfile = async (userAuthenticated, name, nameUser) => {
 //   .catch((error) => {
 //   });
 
+// trae las ciudades
+export const universidades = async (values) => {
+  try {
+    await addDoc(collection(db, "universidades"), {
+        ...values,
+        
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+// //insertar universidades
+// export const universidades = async (value) => {
+//     const { nombre, ciudad, tipo, descripcion } = value
+//     const docRef = doc(db, "universidades", nombre);
+//     await setDoc(docRef, {
+//         nombre,
+//         ciudad,
+//         tipo,
+//         descripcion
+//     });
+//     swal.fire({
+//         title: "Universidad agregada",
+//         showClass: {
+//             popup: 'animate__animated animate__fadeInDown'
+//         },
+//         hideClass: {
+//             popup: 'animate__animated animate__fadeOutUp'
+//         },
+//         icon: 'success',
+//         timer: 2000
+//     })
+// }

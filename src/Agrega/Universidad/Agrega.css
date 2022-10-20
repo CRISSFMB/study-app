@@ -21,6 +21,12 @@
     margin: 0 2rem;
     font-size: 16px;
 }
+.form__image{
+    font-size: 16px;
+    margin: 0 2rem;
+    height: 20rem;
+
+}
 .agrega__form{
     display: grid;
     margin: 0 auto;
@@ -51,14 +57,7 @@
     gap: 2rem;
     align-items: center;
 }
-.form__img{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1.5rem;
-    margin: 1rem 2rem;
-    font-size: 16px;
 
-}
 .checked{
     font-size: 16px;
 
@@ -70,7 +69,7 @@
 }
 
 .agrega__buttons{
-    margin: 3rem 0;
+    margin: 1rem 0;
     padding:1rem ;
     display: grid;
     gap: 1rem;
@@ -116,6 +115,67 @@
     background: #011826;
     color: #ffffff;
 }
+.agrega__error{
+    transition: all .3s ease-in-out;
+    background-color: #a90202;
+    border-radius: 66px;
+    display: grid;
+    margin:  0 auto;
+    margin-top: 1rem;
+    padding: .5rem;
+    text-align: center;
+    width: 50%;
+    color: #ffffff;
+}
+.form__img{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1rem 2rem;
+    font-size: 16px;
+    height: 15rem;
+    
+
+}
+.div__image{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1rem 2rem;
+    font-size: 16px; 
+    align-items: center;
+    justify-items: center;  
+    width: 50%;
+    
+}
+
+.input__upload {
+    display: none;
+}
+.ima{
+    width: 15rem;
+    cursor: pointer;
+}
+.preload{
+    width: 25rem;
+    border-radius: 10px;
+}
+.agrega__back{
+    display: grid;
+    
+    margin:0 auto;
+    width: 90%;
+}
+.btn__back{
+    background: #011826;
+    border-radius: 66px;
+    border: none;
+    color: #F2F2F2;
+    padding: 1rem;
+    transition: .5s  ease-in-out;
+    font-weight: bold;
+    border:1px solid #011826;
+    width: 90%;
+    margin: 1rem auto;
+}
 @media (min-width: 768px) {
     .agrega__form{
         width: 70%;
@@ -126,9 +186,9 @@
 
     }
     .agrega__buttons{
-        margin: 3rem auto;
+        margin: 1rem auto;
         width: 80%;
-        
+        grid-template-columns: 1fr 1fr;
     }
     .btn__add{
 
