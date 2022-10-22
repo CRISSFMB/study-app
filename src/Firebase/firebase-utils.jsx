@@ -6,12 +6,12 @@ import {
   getFirestore,
   doc,
   addDoc,
-
   setDoc,
   getDoc,
   getDocs,
   query,
   collection,
+  Query,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -30,6 +30,8 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 export const auth = getAuth(app);
+
+
 
 //logearse
 export const loginLocal = async (valueUser) => {
@@ -243,17 +245,42 @@ export const createUserProfile = async (userAuthenticated, name, nameUser) => {
 //   .catch((error) => {
 //   });
 
-// trae las ciudades
+// carga de universidades
 export const universidades = async (values) => {
   try {
     await addDoc(collection(db, "universidades"), {
         ...values,
-        
+        createAt: new Date(),        
     });
   } catch (error) {
     console.log(error);
   }
 };
+//traer universidades
+export const getUniversidades = async () => {
+  const querySnapshot = await getDocs(collection(db, "universidades"));
+  const data = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+  return data;
+}
+
+//carga de carreras en universidades
+export const addCarreras = async (values) => {
+  const { uid } = values;
+  try {
+    await addDoc(collection(db, `universidades/${uid}/carreras`), {
+      ...values,
+      createAt: new Date(),
+    });
+    console.log("carrera agregada");
+  }catch (error) {
+    console.log(error);
+  }
+};
+
+
 // //insertar universidades
 // export const universidades = async (value) => {
 //     const { nombre, ciudad, tipo, descripcion } = value

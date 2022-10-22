@@ -1,273 +1,133 @@
-import React, { useEffect, useState } from "react";
-import logo from "./img/agrega.jpg";
+import React from "react";
+import Icon from "./img/icon.png";
+import Comillas from "./img/comillas.png";
 import { Link } from "react-router-dom";
-import "./Agrega.css";
-import { useFormik } from "formik";
-import { AiOutlineCheckCircle } from "react-icons/ai";
-import * as Yup from "yup";
+import { Field, Form, Formik } from "formik";
+import { Input } from "../Input";
+import {
+  BtnBack,
+  ButtonClose,
+  ButtonReset,
+  ButtonSubmit,
+  DivButtons,
+  DivForm,
+  HeaderUniversidad,
+  Imagen,
+  ImgC,
+  Span,
+  Titulo,
+} from "../MyList.styled";
 import { useDispatch } from "react-redux";
-import { addUniversity } from "../../store/slices/university";
+
+import { ValidationUniversidad } from "../Validation";
+import { ValueUniversidad } from "../Values";
+// import { Submit } from "../Submit";
 import Swal from "sweetalert2";
+// import { addUniversity } from "../../store/slices/university";
 import { universidades } from "../../Firebase/firebase-utils";
-
+//http://127.0.0.1:5173/agregarUniversidad
 export const AgregaUniversidad = () => {
-  const dispatch = useDispatch();
-  const initialValues = {
-    title: "",
-    address: "",
-    location: "",
-    image: "",
-    page: "",
-  };
-  const re =
-    /^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$/gm;
-  const required = "* Campo obligatorio";
-  const validationSchema = () =>
-    Yup.object().shape({
-      title: Yup.string()
-        .min(6, "La cantidad mínima de caracteres es 6")
-        .required(required),
-      address: Yup.string()
-        .min(10, "La cantidad mínima de caracteres es 10")
-        .required(required),
-      location: Yup.string().required(required),
-
-      image: Yup.string().matches(re, "URL no valida").required(required),
-      page: Yup.string().matches(re, "URL no valida").required(required),
-    });
-
-  const onSubmit = async () => {
-    Swal.fire({
-      title: "Cargando...",
-      text: "Espere por favor...",
-      allowOutsideClick: false,
-      didOpen: () => {
-        Swal.showLoading();
-      },
-    });
-    universidades(values);
-    dispatch(addUniversity(values));
-    resetForm();
-
-    setTimeout(() => {
-      Swal.close();
-    }, 2000);
-  };
-  const formik = useFormik({ initialValues, validationSchema, onSubmit });
-  const {
-    handleSubmit,
-    handleChange,
-    errors,
-    touched,
-    handleBlur,
-    values,
-    resetForm,
-  } = formik;
+  // const dispatch = useDispatch();
   return (
-    <div className="agrega">
-      <div className="agrega__logo">
+    <>
+      <HeaderUniversidad>
         <Link to="/homeScreen">
-          <button className="agrega__button">x</button>
+          <ButtonClose>x</ButtonClose>
         </Link>
-        <img src={logo} alt="" className="agrega__img" />
-      </div>
-      <div className="agrega__form">
-        <form onSubmit={handleSubmit}>
-          <div className="form__div">
-            <h2>Nombre de la universidad que querés agregar</h2>
-            <div className="input__div">
-              <input
+        <>
+          <Imagen src={Icon} alt="lapicero" />
+
+          <Titulo>
+            Agrega
+            <Span>una Universidad</Span>
+          </Titulo>
+          <ImgC src={Comillas} alt="lapicero" />
+        </>
+      </HeaderUniversidad>
+      <DivForm>
+        <Formik
+          initialValues={ValueUniversidad}
+          validationSchema={ValidationUniversidad}
+          onSubmit={(values, { resetForm }) => {
+            Swal.fire({
+              title: "Cargando...",
+              text: "Espere por favor...",
+              allowOutsideClick: false,
+              didOpen: () => {
+                Swal.showLoading();
+              },
+            });
+            // dispatch(addUniversity(values));
+            universidades(values);
+            setTimeout(() => {
+              Swal.close();
+            }, 2000);
+            resetForm();
+           
+          }}
+        >
+          {(props) => (
+            <Form>
+              <Field
+                label="Nombre de la universidad que querés agregar"
                 name="title"
+                placeholder="Nombre de la universidad"
                 type="text"
-                placeholder="Universidad nombre"
-                className="input__form"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.title}
+                as={Input}
               />
-
-              {errors.title && touched.title ? (
-                <AiOutlineCheckCircle
-                  className="check"
-                  name="title"
-                  size={35}
-                  style={{ color: "red" }}
-                />
-              ) : (
-                <AiOutlineCheckCircle
-                  className="check"
-                  name="title"
-                  size={35}
-                  style={
-                    (values.title.length === 0 && { color: "black" }) ||
-                    (values.title.length >= 6 && { color: "green" })
-                  }
-                />
-              )}
-            </div>
-            {errors.title && touched.title && (
-              <div className="agrega__error">{errors.title}</div>
-            )}
-          </div>
-
-          <div className="form__div">
-            <h2>Dirección</h2>
-
-            <div className="input__div">
-              <input
+              <Field
+                label="Dirección de la universidad"
                 name="address"
-                type="text"
                 placeholder="Dirección 000"
-                className="input__form"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.address}
+                type="text"
+                as={Input}
               />
-              {errors.address && touched.address ? (
-                <AiOutlineCheckCircle
-                  className="check"
-                  name="address"
-                  size={35}
-                  style={{ color: "red" }}
-                />
-              ) : (
-                <AiOutlineCheckCircle
-                  className="check"
-                  name="address"
-                  size={35}
-                  style={
-                    (values.address.length === 0 && { color: "black" }) ||
-                    (values.address.length >= 6 && { color: "green" })
-                  }
-                />
-              )}
-            </div>
-            {errors.address && touched.address && (
-              <div className="agrega__error">{errors.address}</div>
-            )}
-          </div>
-
-          <div className="form__div">
-            <h2>Ubicación</h2>
-            <div className="input__div">
-              <input
+              <Field
+                label="Ubicación"
                 name="location"
+                placeholder="Nombre de la universidad"
                 type="text"
-                placeholder="Localidad, estado, provincia"
-                className="input__form"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.location}
+                as={Input}
               />
-              {errors.location && touched.location ? (
-                <AiOutlineCheckCircle
-                  className="check"
-                  name="location"
-                  size={35}
-                  style={{ color: "red" }}
-                />
-              ) : (
-                <AiOutlineCheckCircle
-                  className="check"
-                  name="location"
-                  size={35}
-                  style={
-                    (values.location.length === 0 && { color: "black" }) ||
-                    (values.location.length >= 6 && { color: "green" })
-                  }
-                />
-              )}
-            </div>
-            {errors.location && touched.location && (
-              <div className="agrega__error">{errors.location}</div>
-            )}
-          </div>
-          <div className="form__div">
-            <h2>Cargá una imagen del campus</h2>
-            <div className="input__div">
-              <input
-                id="imageUp"
-                type="text"
-                placeholder="Cargá una imagen"
-                className="input__form"
+              <Field
+                label="Telefono"
+                name="tel"
+                placeholder="Nombre de la universidad"
+                type="number"
+                as={Input}
+              />
+              <Field
+                label="Cargá una imagen del campus"
                 name="image"
-                onChange={handleChange}
-                value={values.image}
-              />
-
-              {errors.image && touched.image ? (
-                <AiOutlineCheckCircle
-                  className="check"
-                  name="image"
-                  size={35}
-                  style={{ color: "red" }}
-                />
-              ) : (
-                <AiOutlineCheckCircle
-                  className="check"
-                  name="image"
-                  size={35}
-                  style={
-                    (values.image.length === 0 && { color: "black" }) ||
-                    (values.image.length >= 6 && { color: "green" })
-                  }
-                />
-              )}
-            </div>
-            {errors.image && touched.image && (
-              <div className="agrega__error">{errors.image}</div>
-            )}
-          </div>
-          <div className="form__div">
-            <h2>Cargá una URL del campus</h2>
-            <div className="input__div">
-              <input
-                name="page"
+                placeholder="Cargá una imagen"
                 type="text"
-                placeholder="www.universidad.com"
-                className="input__form"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.page}
+                as={Input}
               />
-              {errors.page && touched.page ? (
-                <AiOutlineCheckCircle
-                  className="check"
-                  name="page"
-                  size={35}
-                  style={{ color: "red" }}
-                />
-              ) : (
-                <AiOutlineCheckCircle
-                  className="check"
-                  name="page"
-                  size={35}
-                  style={
-                    (values.page.length === 0 && { color: "black" }) ||
-                    (values.page.length >= 6 && { color: "green" })
-                  }
-                />
-              )}
-              {errors.page && touched.page && (
-                <div className="agrega__error">{errors.page}</div>
-              )}
-            </div>
-          </div>
-          <div className="agrega__buttons">
-            <button className="btn__add" type="submit">
-              Agregar universidad
-            </button>
-            <button className="btn__del" type="reset" onClick={resetForm}>
-              Borrar
-            </button>
-          </div>
-          <div className="agrega__back">
-            <Link to="/homeScreen" className="btn__back">
-              Regresar
-            </Link>
-          </div>
-        </form>
-      </div>
-    </div>
+              <Field
+                label="Sitio web"
+                name="page"
+                placeholder="www.universidad.com"
+                type="text"
+                as={Input}
+              />
+              <Field
+                label="Email"
+                name="email"
+                placeholder="universidad@studyapp.com"
+                type="text"
+                as={Input}
+              />
+              <DivButtons>
+                <ButtonSubmit type="submit">Agregar Universidad</ButtonSubmit>
+                <ButtonReset type="button" onClick={() => props.resetForm()}>
+                  Borrar
+                </ButtonReset>
+              </DivButtons>
+              <BtnBack>Regresar</BtnBack>
+            </Form>
+          )}
+        </Formik>
+      </DivForm>
+    </>
   );
 };

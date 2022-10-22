@@ -1,88 +1,92 @@
 import React from "react";
 import lapicero from "./img/lapicero.png";
-import "./AgregarCarrera.css";
-import styled from "styled-components";
+import { Field, Form, Formik } from "formik";
+import { Input } from "../Input";
+import {
+  BtnBack,
+  ButtonClose,
+  ButtonReset,
+  ButtonSubmit,
+  DivButtons,
+  DivForm,
+  H2,
+  HeaderCarrera,
+  Imagen,
+  Titulo,
+} from "../MyList.styled";
+import { ValidationCarrera } from "../Validation";
+import { ValueCarrera } from "../Values";
+import { Link } from "react-router-dom";
+import Select from "./Select";
+import { addCarreras } from "../../Firebase/firebase-utils";
+
 export const AgregarCarrera = () => {
-  const Banner = styled.div`
-    display: grid;
-      padding: 2rem;
-      background-color: #024059;
-      align-items: center;
-      justify-items: center;
-      grid-template-columns: 1fr 1fr;
-  `;
 
   return (
-    <div>
-      <Banner >
-        <img src={lapicero} alt="" className="carrera__img" />
-        <h2 className="h2__carrera">Agrega Carreras</h2>
-      </Banner>
-      <div className="form__carrera">
-        <form>
-          <div className="form__div">
-            <h2>Nombre de la carrera que querés agregar</h2>
-            <div className="input__div">
-              <input
-                name="title"
+    <>
+      <HeaderCarrera>
+        <Link to="/homeScreen">
+          <ButtonClose>x</ButtonClose>
+        </Link>
+        <Imagen src={lapicero} alt="lapicero" />
+        <Titulo>Agrega Carreras</Titulo>
+      </HeaderCarrera>
+      <DivForm>
+        <Formik
+          initialValues={ValueCarrera}
+          validationSchema={ValidationCarrera}
+          onSubmit={(values, { resetForm }) => {
+            // Submit(values)
+            addCarreras(values);
+            resetForm();
+          }}
+        >
+          {(props) => (
+            <Form>
+              <Field
+                label="Nombre de la carrera que querés agregar"
+                name="titleCarrera"
+                placeholder="Nombre de la Carrera"
                 type="text"
-                placeholder="Carrera nombre"
-                className="input__form"
+                as={Input}
               />
-            </div>
-          </div>
-          <div className="form__div">
-            <h2>Universidad</h2>
-            <div className="input__div">
-              <input
-                name="title"
+              <Field
+                type="checkbox"
+                label="Universidad"
+                name="university"
+                as={Select}
+              />
+              <Field
+                label="Descripción de la carrera"
+                name="description"
+                placeholder="Breve descripción de la carrera"
                 type="text"
-                placeholder="Universidad nombre"
-                className="input__form"
+                as={Input}
               />
-            </div>
-          </div>
-          <div className="form__div">
-            <h2>Descripción</h2>
-            <div className="input__div">
-              <input
-                name="title"
+              <Field
+                label="Sitio web de la carrera"
+                name="url"
+                placeholder="www.studyapp.com"
                 type="text"
-                placeholder="Descripción"
-                className="input__form"
+                as={Input}
               />
-            </div>
-          </div>
-          <div className="form__div">
-            <h2>Link</h2>
-            <div className="input__div">
-              <input
-                name="title"
+              <Field
+                label="Imagen de la carrera"
+                name="imagen"
+                placeholder="image"
                 type="text"
-                placeholder="Link"
-                className="input__form"
+                as={Input}
               />
-            </div>
-          </div>
-          <div className="form__div">
-            <h2>Imagen</h2>
-            <div className="input__div">
-              <input
-                name="title"
-                type="text"
-                placeholder="Imagen"
-                className="input__form"
-              />
-            </div>
-          </div>
-           <div className="form__div">
-
-            <button >X</button>
-            <button >X</button>
-            <button >X</button>
-           </div>
-        </form>
-      </div>
-    </div>
+              <DivButtons>
+                <ButtonSubmit type="submit">Agregar Carrear</ButtonSubmit>
+                <ButtonReset type="button" onClick={() => props.resetForm()}>
+                  Borrar
+                </ButtonReset>
+              </DivButtons>
+            </Form>
+          )}
+        </Formik>
+      </DivForm>
+    </>
   );
 };
