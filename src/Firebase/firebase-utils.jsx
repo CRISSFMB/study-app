@@ -214,6 +214,23 @@ export const createUserProfile = async (userAuthenticated, name, nameUser) => {
   return userReference;
 };
 
+// traer Data Universidades
+
+export const getDataUniversity = async (localidad) => {
+    const q = await query(collection(db, `universidades/snx0JvxZPqgfLe0xYk8u/${localidad}`))
+
+    const querySnapshot = await getDocs(q);
+
+    const dataUniversity = []
+    querySnapshot.forEach(async (doc) => {
+        dataUniversity.push(await doc.data())
+    }
+    );
+    const dataUniversityValues = await dataUniversity
+    
+    return dataUniversityValues[0];
+}
+
 //persister auth
 // const mapUserFromFirebaseAuth = user => {
 

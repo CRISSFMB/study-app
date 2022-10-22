@@ -41,9 +41,11 @@ export default function FormLogin() {
 
     const { email, photoURL, displayName } = user;
 
+ 
     dispatch(login({ email, photoURL, displayName, token }));
     return navigate("/homeScreen");
   };
+
 
   const buttonGoogle = () => {
     return (

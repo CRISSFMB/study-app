@@ -1,0 +1,41 @@
+[
+    {
+        "indice" : 1,
+        "titulo": "Universidad de la Plata",
+        "url" : "https://i.postimg.cc/W4FHy6q8/image-30-3.png",
+        "carga1" : "Nivel Academico",
+        "carga2" : "Acceso transporte publico",
+        "carga3" : "Nivel Profesor",
+        "carga4": "Ambiente",
+        "carga5" : "Demanda Horaria"
+    },
+    {
+        "indice" : 2,
+        "titulo": "Universidad de Buenos Aires",
+        "url" : "https://i.postimg.cc/RFwbSSRn/image-30-4.png"
+    },
+    {
+        "indice" : 3,
+        "titulo": "Universidad de Quilmes",
+        "url" : "https://i.postimg.cc/90Vgz68g/image-30-5.png"
+    },
+    {
+        "indice" : 4,
+        "titulo": "Universidad de Bahia Blanca",
+        "url" : "https://i.postimg.cc/PJ43DS0X/image-30-6.png"
+    },
+    {
+        "indice" : 5,
+        "titulo": "Universidad de Rosario",
+        "url" : "https://i.postimg.cc/G3JS6ptW/image-30-7.png"
+    },
+    {   "indice" : 6,
+        "titulo": "Universidad de Palermo",
+        "url": "https://i.postimg.cc/xTfFQSbc/image-30-8.png"
+    },
+    {
+        "titulo": "Universidad de San Martin",
+        "url": "https://i.postimg.cc/mDQFP6ht/image-30-3.png"
+    }
+
+] 
