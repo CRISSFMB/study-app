@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import imageSearch from "../../../assets/heroHome/searchSection/SearchSection.svg";
 import "./searchSection.css";
 const SearchSection = () => {
@@ -9,9 +11,11 @@ const SearchSection = () => {
           <button className="wrapper-btns-search__btn">
             Calificar una univercidad
           </button>
+          <Link to='/agregarUniversidad'>
           <button className="wrapper-btns-search__btn">
             Agregar univercidad
           </button>
+          </Link>
         </div>
 
         <p className="SearchSection__title">busca tu Carrera</p>
