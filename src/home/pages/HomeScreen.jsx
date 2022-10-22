@@ -1,3 +1,7 @@
+
+import React from "react";
+import { Agrega } from "../../Agrega/Agrega";
+
 // import CalifUniversidades from "../../Calificar/CalifUniversidades";
 import Footer from "../../Footer/Footer";
 
@@ -21,15 +25,12 @@ export const HomeScreen = () => {
       <SearchSection />
 
       <div>
-        <h1 className="titulo">Las universidades de tu futura carrera segun tu:</h1>
-        <NavBar/>
+        <h1 className="titulo">
+          Las universidades de tu futura carrera segun tu:
+        </h1>
+        <NavBar />
       </div>
 
-
-  
-
-      
-      
       <Footer />
     </>
   );
