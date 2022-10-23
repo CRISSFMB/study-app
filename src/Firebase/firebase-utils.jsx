@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import swal from "sweetalert2";
 
 import {
+ 
   getFirestore,
   doc,
   addDoc,
@@ -12,6 +13,7 @@ import {
   query,
   collection,
   Query,
+  refEqual,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -30,8 +32,6 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 export const auth = getAuth(app);
-
-
 
 //logearse
 export const loginLocal = async (valueUser) => {
@@ -217,19 +217,20 @@ export const createUserProfile = async (userAuthenticated, name, nameUser) => {
 // traer Data Universidades
 
 export const getDataUniversity = async (localidad) => {
-    const q = await query(collection(db, `universidades/snx0JvxZPqgfLe0xYk8u/${localidad}`))
+  const q = await query(
+    collection(db, `universidades/snx0JvxZPqgfLe0xYk8u/${localidad}`)
+  );
 
-    const querySnapshot = await getDocs(q);
+  const querySnapshot = await getDocs(q);
 
-    const dataUniversity = []
-    querySnapshot.forEach(async (doc) => {
-        dataUniversity.push(await doc.data())
-    }
-    );
-    const dataUniversityValues = await dataUniversity
-    
-    return dataUniversityValues[0];
-}
+  const dataUniversity = [];
+  querySnapshot.forEach(async (doc) => {
+    dataUniversity.push(await doc.data());
+  });
+  const dataUniversityValues = await dataUniversity;
+
+  return dataUniversityValues[0];
+};
 
 //persister auth
 // const mapUserFromFirebaseAuth = user => {
@@ -266,8 +267,8 @@ export const getDataUniversity = async (localidad) => {
 export const universidades = async (values) => {
   try {
     await addDoc(collection(db, "universidades"), {
-        ...values,
-        createAt: new Date(),        
+      ...values,
+      createAt: new Date(),
     });
   } catch (error) {
     console.log(error);
@@ -281,7 +282,25 @@ export const getUniversidades = async () => {
     ...doc.data(),
   }));
   return data;
-}
+};
+// traer el Array universidad por id
+export const getUniversidad = async(uid) => {
+  const ids = Object.values(uid);
+  // console.log("ids", ids);
+ const querySnapshot = ids.map(async (id) => {
+    const docRef = await  doc(db, `universidades/${id}`);
+    const docSnap = await getDoc(docRef);
+    const dataId = docSnap.data();
+    // console.log("data.docs", dataId);
+    
+    return docSnap.data()
+  });
+  
+  const data = await Promise.all(querySnapshot)
+  return data
+  
+};
+
 
 //carga de carreras en universidades
 export const addCarreras = async (values) => {
@@ -292,9 +311,21 @@ export const addCarreras = async (values) => {
       createAt: new Date(),
     });
     console.log("carrera agregada");
-  }catch (error) {
+  } catch (error) {
     console.log(error);
   }
+};
+
+//traer las Carrera
+export const getCarreras = async (uid) => {
+  const querySnapshot = await getDocs(
+    collection(db, `universidades/${uid}/carreras`)
+  );
+  const data = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+  return data;
 };
 
 

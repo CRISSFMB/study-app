@@ -38,6 +38,7 @@ export const AgregarCarrera = () => {
           onSubmit={(values, { resetForm }) => {
             // Submit(values)
             addCarreras(values);
+            // console.log(values);
             resetForm();
           }}
         >

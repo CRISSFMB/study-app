@@ -17,17 +17,14 @@ import {
   Span,
   Titulo,
 } from "../MyList.styled";
-import { useDispatch } from "react-redux";
-
 import { ValidationUniversidad } from "../Validation";
 import { ValueUniversidad } from "../Values";
-// import { Submit } from "../Submit";
 import Swal from "sweetalert2";
-// import { addUniversity } from "../../store/slices/university";
 import { universidades } from "../../Firebase/firebase-utils";
-//http://127.0.0.1:5173/agregarUniversidad
+import { useDispatch, useSelector } from "react-redux";
+import { addUniversity } from "../../store/slices/university";
 export const AgregaUniversidad = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   return (
     <>
       <HeaderUniversidad>
@@ -57,7 +54,8 @@ export const AgregaUniversidad = () => {
                 Swal.showLoading();
               },
             });
-            // dispatch(addUniversity(values));
+            dispatch(addUniversity(values));
+
             universidades(values);
             setTimeout(() => {
               Swal.close();

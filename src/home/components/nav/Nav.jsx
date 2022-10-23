@@ -1,6 +1,7 @@
 import logoNav from "../../../assets/nav/LogoNav.svg";
 import loginLogo from "../../../assets/nav/login-logo.svg";
 import "./nav.css";
+import { Link } from "react-router-dom";
 const Nav = () => {
   return (
     <div className="Nav">
@@ -11,7 +12,10 @@ const Nav = () => {
         </div>
         <div className="nav-wrapper">
           <div className="nav-wrapper__carreras">
+
+            <Link to={"/viewCarrera"}>
             <button className="nav-btn">carreras</button>
+            </Link>
             <button className="nav-btn">univercidades</button>
           </div>
           <div className="nav-wrapper-login">

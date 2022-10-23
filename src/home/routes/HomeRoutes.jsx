@@ -13,7 +13,9 @@ import Nav from "../components/nav/Nav";
 import ContactoForm from "../../Contacto/pages/ContactoForm";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import { AgregaUniversidad } from "../../Agrega/Universidad/AgregaUniversidad";
-import {AgregarCarrera} from "../../Agrega/Carrera/AgregarCarrera";
+import { AgregarCarrera } from "../../Agrega/Carrera/AgregarCarrera";
+import ViewCarreras from "../../Vistas/ViewCarreras/ViewCarreras";
+import ViewUniversidad from "../../Vistas/ViewUniversidad/ViewUniversidad";
 
 export const HomeRoutes = () => {
   return (
@@ -29,8 +31,10 @@ export const HomeRoutes = () => {
         <Route path="register" element={<Register />} />
         <Route path="contacto" element={<ContactoForm />} />
         <Route path="forgotPassword" element={<ForgotPassword />} />
-        <Route path="agregarUniversidad" element={<AgregaUniversidad />} /> 
-        <Route path="agregarCarrera" element={<AgregarCarrera />} /> 
+        <Route path="agregarUniversidad" element={<AgregaUniversidad />} />
+        <Route path="agregarCarrera" element={<AgregarCarrera />} />
+        <Route path="viewCarrera" element={<ViewCarreras />} />
+        <Route path="viewUniversidad" element={<ViewUniversidad />} />
 
         <Route path="*/" element={<Navigate to="/" />} />
       </Routes>
