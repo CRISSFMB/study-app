@@ -7,18 +7,21 @@
   display: flex;
   justify-content: space-between;
   color: white;
-  padding: 1rem;
+  padding: 1rem 50px;
   align-items: center;
   max-width: 1440px;
   margin: 0 auto;
   flex-direction: column;
 }
-.nav__hamburgerIcon {
-}
+
+.nav__hamburgerIcon {}
+
 .nav__hamburgerIcon {
   display: none;
 }
-
+.nav__user {
+  position: relative;
+}
 .logo-nav {
   display: flex;
   height: 100%;
@@ -28,6 +31,7 @@
   height: 30px;
   cursor: pointer;
 }
+
 .logo-nav__title {
   color: white;
 }
@@ -35,6 +39,7 @@
 .nav-wrapper {
   display: block;
   margin-top: 2rem;
+  position: relative;
   margin: 0 auto;
 }
 
@@ -48,14 +53,82 @@
   margin-left: 10px;
   cursor: pointer;
 }
+
+.cerrar__sesion__button {
+
+  cursor: pointer
+}
+
+.nav__container__sesion {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  left: 50%;
+  position: absolute;
+  top: 100%;
+  background: #0000009e;
+  border-radius: 8px;
+  width: 200px;
+  z-index: 10;
+  transform: translateX(-50%)
+}
+
+.profile__user {
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: space-around;
+  align-items: center;
+  left: 75%;
+  position: absolute;
+  top: 100%;
+  background: #0000009e;
+  border-radius: 8px;
+  width: 300px;
+  z-index: 10;
+  transform: translateX(-50%)
+}
+
+.X__profile {
+  width: 90%;
+  text-align: end;
+  cursor: pointer;
+}
+.profile__user__container {
+
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__container__sesion__item {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px 5px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+.nav-btn a {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+
+}
+
 .nav-btn:hover {
   background: #a8bbbf;
   color: black;
 }
+
 .logo-icon {
   cursor: pointer;
   margin: 0 auto;
   margin-top: 1rem;
+  width: 50px;
+  border-radius: 50%;
 }
 
 .nav-wrapper__carreras,
@@ -72,12 +145,22 @@
     display: flex;
     justify-content: space-between;
   }
+
   .Nav-container {
     flex-direction: row;
   }
+
+  .nav__container__sesion {
+    flex-direction: column;
+    width: 150px;
+  }
+
+  
+
   .logo-icon {
     margin-top: 0;
   }
+
   .nav-wrapper {
     margin-top: 0;
   }

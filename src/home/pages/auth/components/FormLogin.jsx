@@ -10,6 +10,7 @@ import { initialValuesLogin } from "./InitialValues";
 import { validationSchemaLogin } from "./ValidationSchema";
 import {
   auth,
+  createUserProfile,
   dataUser,
   loginLocal,
   signInGoogle,
@@ -28,12 +29,13 @@ export default function FormLogin() {
 
   useEffect(() => {
     return () => {
-      console.log(state);
+      console.log("stateAuth",state);
     };
   }, [state]);
 
   const onGoogleSignHandler = async () => {
     const user = await signInGoogle();
+    // await createUserProfile(user.uid, user.displayName)
     console.log("user", user);
     //token user
     console.log("TokenUser", auth.currentUser.accessToken);

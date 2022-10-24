@@ -1,30 +1,33 @@
-<<<<<<< HEAD
-import React from "react";
+
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Agrega } from "../../Agrega/Agrega";
-
-=======
-import CalifUniversidades from "../../Calificar/CalifUniversidades";
->>>>>>> 5153a74dd782ef3656b5d1d2749562e1f6706ded
+import { onAuthStateChange } from "../../Firebase/firebase-utils";
 import Footer from "../../Footer/Footer";
-
 import NavBar from "../../onBoarding/components/NavBar/NavBar";
-import NivelAcademico from "../../onBoarding/components/NavBar/NivelAcademico";
-import RutasUniversidades from "../../onBoarding/components/NavBar/RutasUniversidades";
+import { login } from "../../store/slices/auth";
 import Carousel from "../components/Carousel/Carousel";
 import HeroHome from "../components/heroHome/HeroHome";
 import Nav from "../components/nav/Nav";
 import SearchSection from "../components/search/SearchSection";
 
 export const HomeScreen = () => {
-  return (
-<<<<<<< HEAD
-    <div>
-      <h1>HomeScreen</h1>
+  const dispatch = useDispatch()
+  const onChange = (user) => {
+    console.log("UserActualizado", user)
+    const {email, photoURL, name, token } = user;
+    dispatch(login({ email, photoURL, name, token }))
     
-      
-      <Footer/>
-    </div>
-=======
+  }
+
+  useEffect(() => {
+    
+  
+    return () => onAuthStateChange(onChange)
+
+  }, [])
+  
+  return (
     <>
       <Nav />
 
@@ -39,13 +42,9 @@ export const HomeScreen = () => {
         <NavBar/>
       </div>
 
-
-  
-
-      
       
       <Footer />
     </>
->>>>>>> 5153a74dd782ef3656b5d1d2749562e1f6706ded
+
   );
 };
