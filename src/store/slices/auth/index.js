@@ -14,10 +14,12 @@ export const authSlice = createSlice({
   },
   reducers: {
     login: (state, action) => {
+      localStorage.setItem('user', JSON.stringify(action.payload));
       state.auth = action.payload;
     },
     logOut: (state, action) => {
-      state.auth = initialState;
+      localStorage.removeItem('user');
+      state.auth = action.payload;
     },
   },
 });

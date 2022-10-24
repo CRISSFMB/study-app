@@ -180,23 +180,24 @@ export const dataUser = async (user) => {
 
 //crear perfil user
 export const createUserProfile = async (userAuthenticated, name, nameUser) => {
-  const userReference = doc(db, `users/${userAuthenticated.uid}`);
-  console.log("photoUser", userAuthenticated.photoURL);
-  const result = await getDoc(userReference);
 
-  if (!result.exists()) {
-    const { email, photoURL } = userAuthenticated;
+    const userReference = doc(db, `users/${userAuthenticated.uid}`)
+    console.log("photoUser", userAuthenticated.photoURL)
+    const result = await getDoc(userReference)
 
-    try {
-      await setDoc(userReference, {
-        photoURL,
-        name,
-        nameUser: null || nameUser,
-        createAt: new Date(),
-        email,
-      });
-    } catch (error) {
-      console.log({ error });
+    if (!result.exists()) {
+        const { email, photoURL } = userAuthenticated;
+
+        try {
+            await setDoc(userReference, {
+                photoURL,
+                name,
+                createAt: new Date(),
+                email
+            })
+        } catch (error) {
+            console.log({ error })
+
     }
   }
   const { photoURL } = userAuthenticated;
@@ -217,40 +218,43 @@ export const createUserProfile = async (userAuthenticated, name, nameUser) => {
 // traer Data Universidades
 
 export const getDataUniversity = async (localidad) => {
-    const q = await query(collection(db, `universidades/snx0JvxZPqgfLe0xYk8u/${localidad}`))
+    const q = await query(collection(db, `universidades`))
 
     const querySnapshot = await getDocs(q);
-
+    
     const dataUniversity = []
     querySnapshot.forEach(async (doc) => {
         dataUniversity.push(await doc.data())
     }
     );
     const dataUniversityValues = await dataUniversity
-    
-    return dataUniversityValues[0];
+    console.log()
+    return dataUniversityValues;
 }
 
 //persister auth
-// const mapUserFromFirebaseAuth = user => {
+const mapUserFromFirebaseAuth = user => {
 
-//     const { email, name, photoURL } = user;
-//     return {
-//         name,
-//         email,
-//         photoURL
+    const { email, name, photoURL } = user;
 
-//     }
-// }
+    return {
+        name,
+        email,
+        photoURL
 
-// export const onAuthStateChange = (onChange) => {
+    }
+}
 
-//     return onAuthStateChanged(auth, async _user => {
-//         const user = await dataUser(_user)
-//         const finalyUser = mapUserFromFirebaseAuth(user)
-//         onChange(finalyUser)
-//     })
-// }
+export const onAuthStateChange = (onChange) => {
+
+    return onAuthStateChanged(auth, async _user => {
+        const user = await dataUser(_user)
+        console.log("UserChange", user)
+        const finalyUser = mapUserFromFirebaseAuth(user)
+        console.log("FinalyUser",finalyUser)
+        onChange(finalyUser)
+    })
+}
 
 // id token de la app (cliente)
 // getAuth()

@@ -22,3 +22,10 @@
   -webkit-align-items: center;
   align-items: center;
 }
+
+.carrosuel__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
