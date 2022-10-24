@@ -56,6 +56,19 @@
   width: 100%;
 }
 
+.skeleton {
+  animation: skeleton 1s linear infinite alternate;
+}
+
+@keyframes skeleton {
+  0% {
+    background: linear-gradient(to right, rgb(204, 204, 208), rgb(138, 137, 137));
+  }
+  100% {
+    background: linear-gradient(to right, rgb(165, 165, 166), rgb(97, 96, 96));
+
+  }
+}
 @media screen and (min-width: 1024px) {
   .card__footer__title {
     font-size: 16px;
