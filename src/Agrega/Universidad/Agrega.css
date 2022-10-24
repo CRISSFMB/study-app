@@ -1,0 +1,24 @@
+
+
+.agrega__button:hover{
+    color: #011826;
+}
+.agrega__img{
+    width: 100%;
+}
+
+
+.agrega__form{
+    display: grid;
+    margin: 0 auto;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.input__div{
+    display: grid;
+    grid-template-columns: 96% 4%;
+    gap: 2rem;
+    align-items: center;
+}
+

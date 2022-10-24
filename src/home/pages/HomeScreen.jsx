@@ -1,4 +1,5 @@
 
+
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Agrega } from "../../Agrega/Agrega";
@@ -27,6 +28,7 @@ export const HomeScreen = () => {
 
   }, [])
   
+
   return (
     <>
       <Nav />
@@ -38,13 +40,15 @@ export const HomeScreen = () => {
       <SearchSection />
 
       <div>
-        <h1 className="titulo">Las universidades de tu futura carrera segun tu:</h1>
-        <NavBar/>
+        <h1 className="titulo">
+          Las universidades de tu futura carrera segun tu:
+        </h1>
+        <NavBar />
       </div>
-
       
       <Footer />
     </>
+
 
   );
 };
